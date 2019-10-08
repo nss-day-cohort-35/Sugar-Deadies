@@ -29,3 +29,9 @@ These are all of the skills and concepts that Energetic Beefcake used to create 
 1. Copy the sample data below into database.json
 1. Run json-server in port 5002 with database.json
 1. In the terminal, type the command "npm start". You are now ready to use Nutshell!
+
+##Naming Conventions
+
+1. Classes will contain dashes
+2. ID's are camelCase
+3. Uppercase .js files
