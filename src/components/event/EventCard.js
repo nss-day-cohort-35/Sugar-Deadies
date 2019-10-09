@@ -1,2 +1,2 @@
-// Authors: Gradi, Mark, Quin, Storage
-// Purpose of the file to display individual events 
+// Authors: Gradi, Mark, Quin, Sage
+// Purpose of the file to display individual events
