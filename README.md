@@ -1,6 +1,6 @@
-## Nutshell: 
+## Nutshell:
 ### Creators (aka Sugar-Deadies)
-1. Gradi Ellis,   
+1. Gradi Ellis,
 1. Mark McCann,
 1. Quin Smith,
 1. Sage Klein

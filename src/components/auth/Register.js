@@ -1,11 +1,11 @@
 // Authors: Gradi, Mark, Quin, Sage
-// Purpose of the File: Landing page that holds the login and registration data and returns the login and registration input fields.
+// Purpose of the File: Holds the registration data and returns the registration input fields.
+
 import React, { Component } from "react"
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import Register from "./Register"
 
 //Reactstrap Modal code from line 10 to 21
-class Login extends Component {
+class Register extends Component {
 
     // Set initial state
     constructor(props) {
@@ -21,13 +21,6 @@ class Login extends Component {
         }));
     }
 
-    // Update state whenever an input field is edited
-    handleFieldChange = (evt) => {
-        const stateToChange = {}
-        stateToChange[evt.target.id] = evt.target.value
-        this.setState(stateToChange)
-    }
-
     handleLogin = (e) => {
         e.preventDefault()
         /*
@@ -39,23 +32,30 @@ class Login extends Component {
        this.props.setUser(credentials);
        this.props.history.push("/");
 
-        //This determines which page you land on upon login.
+        //This determines which page you land on upon registration.
         this.props.history.push("/");
 
     }
-    //Login modal code goes here. 👇
+
+    //Registration modal code goes here. 👇
     render() {
         const closeBtn = <button className="close" onClick={this.toggle}>&times;</button>;
         return (
 
              <div>
-             <Button color="success" onClick={this.toggle}>Login</Button>
+             <Button color="success" onClick={this.toggle}>Register</Button>
              <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-               <ModalHeader toggle={this.toggle} close={closeBtn}>Please Sign In</ModalHeader>
+               <ModalHeader toggle={this.toggle} close={closeBtn}>Create Your Account</ModalHeader>
                <ModalBody>
                <form onSubmit={this.handleLogin}>
                 <fieldset>
                     <div className="formgrid">
+                    <input onChange={this.handleFieldChange} type="name"
+                            id="name"
+                            placeholder="Full Name"
+                            required="" autoFocus="" />
+                        <label htmlFor="inputName">Name</label>
+
                         <input onChange={this.handleFieldChange} type="email"
                             id="email"
                             placeholder="Email address"
@@ -76,14 +76,9 @@ class Login extends Component {
                  <Button color="secondary" onClick={this.toggle}>Cancel</Button>
                </ModalFooter>
              </Modal>
-             <div className="registrationDiv">
-                 {/* <Register /> calls the component Register and its contents from Register.js to display on the login page. */}
-             <Register />
-             </div>
            </div>
         )
     }
-
 }
 
-export default Login
+export default Register
