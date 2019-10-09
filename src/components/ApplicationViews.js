@@ -4,6 +4,7 @@
 import { Route } from "react-router-dom";
 import React, { Component } from "react";
 import Login from "./auth/Login"
+import Register from "./auth/Register"
 import Home from "./home/Home"
 
 export default class ApplicationViews extends Component {
@@ -22,6 +23,12 @@ export default class ApplicationViews extends Component {
         <Route path="/login" render={props => {
           return <Login setUser={this.props.setUser} {...props} />
         }} />
+
+        <Route path="/register" render={props => {
+          return <Register setUser={this.props.setUser} {...props} />
+        }} />
+
+
 
       </React.Fragment>
     );
