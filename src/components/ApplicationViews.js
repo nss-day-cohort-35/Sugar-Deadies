@@ -1,5 +1,7 @@
-import { Route, Redirect } from "react-router-dom";
+import { Route } from "react-router-dom";
 import React, { Component } from "react";
+import Login from "./auth/Login"
+import Home from "./home/Home"
 
 export default class ApplicationViews extends Component {
 
@@ -9,32 +11,15 @@ export default class ApplicationViews extends Component {
 
         <Route
           exact path="/" render={props => {
-            return null
-            // Remove null and return the component which will show news articles
+            return <Home />
+            // Returns the component which will show the dashboard
           }}
         />
 
-        <Route
-          path="/friends" render={props => {
-            return null
-            // Remove null and return the component which will show list of friends
-          }}
-        />
+        <Route path="/login" render={props => {
+          return <Login setUser={this.props.setUser} {...props} />
+        }} />
 
-        <Route
-          path="/messages" render={props => {
-            return null
-            // Remove null and return the component which will show the messages
-          }}
-        />
-
-        <Route
-          path="/tasks" render={props => {
-            return null
-            // Remove null and return the component which will show the user's tasks
-          }}
-        />
-        
       </React.Fragment>
     );
   }
