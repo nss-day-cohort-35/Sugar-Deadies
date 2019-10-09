@@ -21,7 +21,7 @@ class Register extends Component {
         }));
     }
 
-    handleLogin = (e) => {
+    handleRegister = (e) => {
         e.preventDefault()
         /*
             For now, just store the email and password that
