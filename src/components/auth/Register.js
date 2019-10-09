@@ -3,19 +3,19 @@
 
 import React, { Component } from "react"
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import APIManager from '../../modules/APIManger'
+
 
 //Reactstrap Modal code from line 10 to 21
 class Register extends Component {
 
     // Set initial state
-    constructor(props) {
-        super(props);
-        this.state = {
+        state = {
+          email: "",
+          password: "",
           modal: false
         };
-        this.toggle = this.toggle.bind(this);
-      }
-      toggle() {
+      toggle = () => {
         this.setState(prevState => ({
           modal: !prevState.modal
         }));
@@ -23,17 +23,31 @@ class Register extends Component {
 
     handleRegister = (e) => {
         e.preventDefault()
-        /*
-            For now, just store the email and password that
-            the customer enters into session storage.
-        */
-       e.preventDefault()
-       let credentials = {email: this.state.email, password: this.state.password}
-       this.props.setUser(credentials);
-       this.props.history.push("/");
-
-        //This determines which page you land on upon registration.
-        this.props.history.push("/");
+        console.log(e)
+        this.toggle()
+        APIManager.getAll("users").then((users) => {
+          console.log(users)
+          let isMatch = users.find(user => user.email.toLowerCase() === this.state.email.toLowerCase())
+          if(isMatch){
+              window.alert("This email already exists! Please go back to login page.")
+          } else if(this.state.email === "" || this.state.password === ""){
+              window.alert("You left a field blank!")
+          } else {
+          let newUser = {
+              email: this.state.email,
+              password: this.state.password
+          };
+          console.log(newUser)
+          APIManager.post("users", newUser)
+          .then(() => APIManager.getAll("users").then(users => users.find(user => user.password === this.state.password))
+          .then(foundUser => {
+            console.log(foundUser)
+              sessionStorage.setItem("userId", foundUser.id)})
+              .then(() =>
+              //This determines which page you land on upon registration
+              this.props.history.push("/")))
+          }
+      })
 
     }
 
@@ -47,14 +61,9 @@ class Register extends Component {
              <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                <ModalHeader toggle={this.toggle} close={closeBtn}>Create Your Account</ModalHeader>
                <ModalBody>
-               <form onSubmit={this.handleLogin}>
+               <form>
                 <fieldset>
                     <div className="formgrid">
-                    <input onChange={this.handleFieldChange} type="name"
-                            id="name"
-                            placeholder="Full Name"
-                            required="" autoFocus="" />
-                        <label htmlFor="inputName">Name</label>
 
                         <input onChange={this.handleFieldChange} type="email"
                             id="email"
@@ -72,7 +81,7 @@ class Register extends Component {
             </form>
                </ModalBody>
                <ModalFooter>
-                 <Button color="primary" onClick={this.toggle}>Sign In!</Button>{' '}
+                 <Button color="primary" onClick={this.handleRegister}>Create Account!</Button>{' '}
                  <Button color="secondary" onClick={this.toggle}>Cancel</Button>
                </ModalFooter>
              </Modal>
