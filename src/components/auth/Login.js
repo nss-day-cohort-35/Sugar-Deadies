@@ -1,3 +1,6 @@
+// Authors: Gradi, Mark, Quin, Sage
+// Purpose of the File: Holds the login data and returns the login input fields.
+
 import React, { Component } from "react"
 
 class Login extends Component {
@@ -30,7 +33,7 @@ class Login extends Component {
         this.props.history.push("/");
 
     }
-
+    //Login modal code goes here. 👇
     render() {
         return (
             <form onSubmit={this.handleLogin}>

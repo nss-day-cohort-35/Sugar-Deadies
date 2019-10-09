@@ -1,3 +1,6 @@
+// Authors: Gradi, Mark, Quin, Sage
+// Purpose of the File: to house the routes/paths to each aspect of our app
+
 import { Route } from "react-router-dom";
 import React, { Component } from "react";
 import Login from "./auth/Login"

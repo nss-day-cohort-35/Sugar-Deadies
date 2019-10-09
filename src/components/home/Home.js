@@ -1,3 +1,6 @@
+// Authors: Gradi, Mark, Quin, Sage
+// Purpose of the File: The actual factual dashboard.
+
 import React, { Component } from 'react';
 
 class Home extends Component {

@@ -1,6 +1,6 @@
 //Kennel.js equivalent for Sugar-Deadies
 // Authors: Gradi, Mark, Quin, Sage
-// Purpose of the file to hold functionality for sessionStorage for login, renders the <Navbar> and <ApplicationViews.js>
+// Purpose of the File: to hold functionality for sessionStorage for login, renders the <Navbar> and <ApplicationViews.js>
 
 //<Dashboard.js> renders the <NavBar> and <ApplicationViews> in the place of <Nutshell.js>
 import React, { Component } from 'react'
@@ -22,7 +22,7 @@ import '../src/index.css'
 
 //Components are the building blocks of any React app and a typical React app will have many of these. Simply put, a component is a JavaScript class or function that optionally accepts inputs i.e. properties(props) and returns a React element that describes how a section of the UI (User Interface) should appear.
 
-class Dashboard extends Component {
+class Storage extends Component {
   //On startup, there is no user (user: false)
   state = {
     user: sessionStorage.getItem("credentials") !== null
@@ -66,4 +66,4 @@ class Dashboard extends Component {
 }
 
 
-export default Dashboard;
+export default Storage;
