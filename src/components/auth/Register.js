@@ -3,7 +3,7 @@
 
 import React, { Component } from "react"
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import APIManager from '../../modules/APIManger'
+import APIManager from '../../modules/APIManager'
 
 
 //Reactstrap Modal code from line 10 to 21

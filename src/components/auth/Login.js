@@ -3,7 +3,7 @@
 import React, { Component } from "react"
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import Register from "./Register"
-import APIManager from "../../modules/APIManger";
+import APIManager from "../../modules/APIManager";
 
 //Reactstrap Modal code from line 10 to 21
 class Login extends Component {
@@ -34,7 +34,7 @@ class Login extends Component {
         e.preventDefault()
         APIManager.getAll("users").then((users) => {
             let singleUser = users.find(
-                user => 
+                user =>
                 user.password.toLowerCase() === this.state.password.toLowerCase() &&
                 user.email.toLowerCase() === this.state.email.toLowerCase()
                 );
