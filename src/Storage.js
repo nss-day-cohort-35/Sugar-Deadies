@@ -33,10 +33,6 @@ class Storage extends Component {
   isAuthenticated = () => sessionStorage.getItem("credentials") !== null
 
   setUser = (authObj) => {
-    /*
-      For now, just store the email and password that
-      the user enters into session storage.
-    */
     sessionStorage.setItem(
       "credentials",
       JSON.stringify(authObj)

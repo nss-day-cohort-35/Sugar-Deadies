@@ -15,7 +15,7 @@ export default class ApplicationViews extends Component {
 
         <Route
           exact path="/" render={props => {
-            return <Home />
+            return <Home {...props}/>
             // Returns the component which will show the dashboard
           }}
         />
