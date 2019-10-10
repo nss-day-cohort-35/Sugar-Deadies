@@ -10,7 +10,6 @@ import '../src/Dashboard.css'
 
 import ApplicationViews from './components/ApplicationViews'
 
-
 import NavBar from './components/nav/NavBar'
 //.css files hold the styling for the cards created on each of the lists.
 import './components/friends/friend.css'
@@ -33,10 +32,6 @@ class Storage extends Component {
   isAuthenticated = () => sessionStorage.getItem("credentials") !== null
 
   setUser = (authObj) => {
-    /*
-      For now, just store the email and password that
-      the user enters into session storage.
-    */
     sessionStorage.setItem(
       "credentials",
       JSON.stringify(authObj)
