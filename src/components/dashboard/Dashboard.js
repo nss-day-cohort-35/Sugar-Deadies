@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
-import FriendList from "../friends/FriendList"
-import NewsList from "../news/NewsList"
-import EventList from "../event/EventList"
+// import FriendList from "../friends/FriendList"
+// import NewsList from "../news/NewsList"
+// import EventList from "../event/EventList"
 import TaskList from "../task/TaskList"
-import MessageList from "../message/MessageList"
+// import MessageList from "../message/MessageList"
 
 class Dashboard extends Component {
     render() {
         return (
             <>
-            <FriendList />
+            {/* <FriendList />
             <NewsList />
-            <EventList />
-            <TaskList />
-            <MessageList />
+            <EventList /> */}
+        <TaskList {...this.props}/>
+            {/* <MessageList />*/}
             </>
         )
     }
