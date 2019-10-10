@@ -34,7 +34,7 @@ class Login extends Component {
         e.preventDefault()
         APIManager.getAll("users").then((users) => {
             let singleUser = users.find(
-                user => 
+                user =>
                 user.password.toLowerCase() === this.state.password.toLowerCase() &&
                 user.email.toLowerCase() === this.state.email.toLowerCase()
                 );
