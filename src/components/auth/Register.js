@@ -3,7 +3,7 @@
 
 import React, { Component } from "react"
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import APIManager from '../../modules/APIManger'
+import APIManager from '../../modules/APIManager'
 
 
 //Reactstrap Modal code from line 10 to 21
@@ -50,12 +50,17 @@ export default class Register extends Component {
           password: this.state.password
         };
         APIManager.post("users", newUser)
-            .then(() =>
+            .then(() => {
+            sessionStorage.setItem("userId", newUser.id);
+            sessionStorage.setItem("email", this.state.email);
               //This determines which page you land on upon registration
-              this.props.history.push("/login"))
+              this.props.history.push("/tasks")
+            
+            }
+        )}
       }
-    })
-  }
+    )
+}
 
   //Registration modal code goes here. 👇
   render() {
