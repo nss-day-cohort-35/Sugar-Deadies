@@ -10,7 +10,6 @@ import '../src/Dashboard.css'
 
 import ApplicationViews from './components/ApplicationViews'
 
-
 import NavBar from './components/nav/NavBar'
 //.css files hold the styling for the cards created on each of the lists.
 import './components/friends/friend.css'

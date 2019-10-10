@@ -6,6 +6,7 @@ import React, { Component } from "react";
 import Login from "./auth/Login"
 import Register from "./auth/Register"
 import Home from "./home/Home"
+import TaskList from "./task/TaskList"
 
 export default class ApplicationViews extends Component {
 
@@ -15,7 +16,7 @@ export default class ApplicationViews extends Component {
 
         <Route
           exact path="/" render={props => {
-            return <Home {...props}/>
+            return <Home {...props} />
             // Returns the component which will show the dashboard
           }}
         />
@@ -28,7 +29,12 @@ export default class ApplicationViews extends Component {
           return <Register setUser={this.props.setUser} {...props} />
         }} />
 
-
+        <Route
+          exact path="/tasks" render={props => {
+            return <TaskList {...props} />
+            // Returns the component which will show the dashboard
+          }}
+        />
 
       </React.Fragment>
     );

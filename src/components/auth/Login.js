@@ -3,21 +3,23 @@
 import React, { Component } from "react"
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import Register from "./Register"
+import APIManager from "../../modules/APIManger";
 
 //Reactstrap Modal code from line 10 to 21
 class Login extends Component {
 
     // Set initial state
-    constructor(props) {
-        super(props);
-        this.state = {
-          modal: false
-        };
-        this.toggle = this.toggle.bind(this);
-      }
-      toggle() {
+
+    state = {
+        email: "",
+        password: "",
+        userId: "",
+        modal: false
+    };
+
+    toggle = () => {
         this.setState(prevState => ({
-          modal: !prevState.modal
+            modal: !prevState.modal
         }));
     }
 
@@ -30,59 +32,68 @@ class Login extends Component {
 
     handleLogin = (e) => {
         e.preventDefault()
-        /*
-            For now, just store the email and password that
-            the customer enters into session storage.
-        */
-       e.preventDefault()
-       let credentials = {email: this.state.email, password: this.state.password}
-       this.props.setUser(credentials);
-       this.props.history.push("/");
+        APIManager.getAll("users").then((users) => {
+            let singleUser = users.find(
+                user => 
+                user.password.toLowerCase() === this.state.password.toLowerCase() &&
+                user.email.toLowerCase() === this.state.email.toLowerCase()
+                );
+            if (this.state.email === "") {
+                window.alert("Please enter email")
+            } else if (this.state.password === "") {
+                window.alert("Please enter password")
+            } else if (singleUser) {
+                sessionStorage.setItem("userId", singleUser.id);
+                sessionStorage.setItem("email", this.state.email);
+                this.props.history.push("/tasks");
+            } else {
+            window.alert("User email and password do not match")
+        }
 
-        //This determines which page you land on upon login.
-        this.props.history.push("/");
+    })
+}
 
-    }
-    //Login modal code goes here. 👇
-    render() {
-        const closeBtn = <button className="close" onClick={this.toggle}>&times;</button>;
-        return (
 
-             <div>
-             <Button color="success" onClick={this.toggle}>Login</Button>
-             <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-               <ModalHeader toggle={this.toggle} close={closeBtn}>Please Sign In</ModalHeader>
-               <ModalBody>
-               <form onSubmit={this.handleLogin}>
-                <fieldset>
-                    <div className="formgrid">
-                        <input onChange={this.handleFieldChange} type="email"
-                            id="email"
-                            placeholder="Email address"
-                            required="" autoFocus="" />
-                        <label htmlFor="inputEmail">Email address</label>
+//Login modal code goes here. 👇
+render() {
+    const closeBtn = <button className="close" onClick={this.toggle}>&times;</button>;
+    return (
 
-                        <input onChange={this.handleFieldChange} type="password"
-                            id="password"
-                            placeholder="Password"
-                            required="" />
-                        <label htmlFor="inputPassword">Password</label>
-                    </div>
-                </fieldset>
-            </form>
-               </ModalBody>
-               <ModalFooter>
-                 <Button color="primary" onClick={this.toggle}>Sign In!</Button>{' '}
-                 <Button color="secondary" onClick={this.toggle}>Cancel</Button>
-               </ModalFooter>
-             </Modal>
-             <div className="registrationDiv">
-                 {/* <Register /> calls the component Register and its contents from Register.js to display on the login page. */}
-             <Register />
-             </div>
-           </div>
-        )
-    }
+        <div>
+            <Button color="success" onClick={this.toggle}>Login</Button>
+            <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+                <ModalHeader toggle={this.toggle} close={closeBtn}>Please Sign In</ModalHeader>
+                <ModalBody>
+                    <form onSubmit={this.handleLogin}>
+                        <fieldset>
+                            <div className="formgrid">
+                                <input onChange={this.handleFieldChange} type="email"
+                                    id="email"
+                                    placeholder="Email address"
+                                    required="" autoFocus="" />
+                                <label htmlFor="inputEmail">Email address</label>
+
+                                <input onChange={this.handleFieldChange} type="password"
+                                    id="password"
+                                    placeholder="Password"
+                                    required="" />
+                                <label htmlFor="inputPassword">Password</label>
+                            </div>
+                        </fieldset>
+                    </form>
+                </ModalBody>
+                <ModalFooter>
+                    <Button color="primary" onClick={this.handleLogin}>Sign In!</Button>{' '}
+                    <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+                </ModalFooter>
+            </Modal>
+            <div className="registrationDiv">
+                {/* <Register /> calls the component Register and its contents from Register.js to display on the login page. */}
+                <Register />
+            </div>
+        </div>
+    )
+}
 
 }
 
