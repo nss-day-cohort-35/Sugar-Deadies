@@ -32,13 +32,6 @@ export default class ApplicationViews extends Component {
           return <Register setUser={this.props.setUser} {...props} />
         }} />
 
-        {/* <Route
-          exact path="/tasks" render={props => {
-            return <TaskList {...props} />
-            // Returns the component which will show the dashboard
-          }}
-        /> */}
-
       </React.Fragment>
     );
   }

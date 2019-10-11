@@ -5,6 +5,8 @@ import React, { Component } from "react";
 import APIManager from "../../modules/APIManager";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 // import "./taskForm.css";
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { fas fa-plus-circle fa-1x } from '@fortawesome/free-solid-svg-icons'
 
 class AddTaskForm extends Component {
 	//set the initial state
@@ -17,6 +19,8 @@ class AddTaskForm extends Component {
 		loadingStatus: true,
         modal: false
   };
+
+//   const element = <FontAwesomeIcon icon={fas fa-plus-circle fa-1x} />
 
   toggle = () => {
     this.setState(prevState => ({
@@ -57,8 +61,8 @@ class AddTaskForm extends Component {
 		return (
 			<>
 				{" "}
-				<Button color="success" onClick={this.toggle}>
-                Add Task				</Button>
+				<Button className="addTask" color="success" onClick={this.toggle}>
+                Add Task</Button>
 				<Modal
 					isOpen={this.state.modal}
 					toggle={this.toggle}

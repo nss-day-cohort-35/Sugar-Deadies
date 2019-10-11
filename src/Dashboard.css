@@ -1,0 +1,111 @@
+/* Import the google web fonts you want to use */
+@import url("https://fonts.googleapis.com/css?family=Raleway:500|Rye&display=swap");
+
+h1 {
+    font-size: 50px;
+    font-family: 'Rye', cursive;
+    color: #663695;
+    text-transform: lowercase;
+  }
+
+/* Main Div Flex */
+:root {
+    display: flex;
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100vw;
+}
+
+.leftSection {
+    border-style: none;
+    border-radius: 2em;
+    display: flex;
+    width: 25vw;
+    height: 100vh;
+}
+
+.mainSection {
+    border-style: none;
+    display: flex;
+    width: 50vw;
+    flex-direction: column;
+}
+
+.rightSection {
+    border-style: none;
+    border-radius: 2em;
+    display: flex;
+    width: 25vw;
+    height: 100vh;
+}
+
+.taskNews {
+display: flex;
+flex-direction: row;
+align-content: center;
+}
+
+/* Components Border CSS */
+
+.friends-container {
+    border-style: solid;
+    border-color: black;
+    width: 50vw;
+}
+
+.messages-container {
+    border-style: solid;
+    border-color: black;
+    width: 25vw;
+}
+
+.news-container {
+    border-style: solid;
+    border-color: black;
+    width: 50vw;
+    display: flex;
+}
+
+.tasks-container {
+border-style: solid;
+border-color: blue;
+display: flex;
+width: 50vw;
+}
+
+.tasks-container-cards {
+    display: flex; 
+}
+/* .eventCardContainer {
+    border-style: solid;
+    border-color: black;
+}
+
+.eventFormContainer {
+    border-style: solid;
+    border-color: red;
+}
+
+.chatCardContainer {
+    border-style: solid;
+    border-color: black;
+}
+
+.chatFormContainer {
+    border-style: solid;
+    border-color: purple;
+}
+
+.taskCardContainer {
+    border-style: solid;
+    border-color: black;
+}
+
+.taskFormContainer {
+    border-style: solid;
+    border-color: green;
+} */

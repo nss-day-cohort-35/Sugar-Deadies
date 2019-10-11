@@ -1,0 +1,17 @@
+picture {
+    display: flex;
+    justify-content: left;
+    width: 20px;
+    margin-top: 10px;
+  }
+
+.logo {
+    width: 400px;
+    margin-top: 10px;
+    margin-bottom: 13px;
+    margin-left: 10px;
+}
+
+  small {
+    font-size: 75%;
+  }

@@ -42,10 +42,11 @@ class TaskList extends Component {
   render() {
     return (
       <>
+      <div className="tasks-container">
       <h1>TASK LIST</h1>
       <AddTaskForm {...this.props}/>
 
-        <div className="container-cards">
+        <div className="tasks-container-cards">
           {this.state.tasks.map(task => (
             <TaskCard
               key={task.id}
@@ -54,6 +55,7 @@ class TaskList extends Component {
               {...this.props}
             />
           ))}
+        </div>
         </div>
       </>
     );
