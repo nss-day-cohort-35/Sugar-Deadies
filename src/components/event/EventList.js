@@ -8,9 +8,9 @@ import AddEventForm from "./AddEventForm"
 
 class EventList extends Component {
   //define what this component needs to render
-   state = {
-   events: [],
-   modal: false
+  state = {
+    events: [],
+    modal: false
   };
 
   toggle = () => {
@@ -29,7 +29,11 @@ class EventList extends Component {
     });
   };
 
-  getData = () => APIManager.getAll("events");
+  getData = () => APIManager.getAll("events").then (events => {
+    this.setState({
+      events: events
+    })
+  });
 
   componentDidMount() {
     //getAll from APIManager and hang on to that data; put it in state
@@ -43,20 +47,22 @@ class EventList extends Component {
   render() {
     return (
       <>
-      <div className="events-container">
-      <h1>EVENTS LIST</h1>
-      {/* <AddEventForm {...this.props}/>
+        <div className="events-container">
+          <h1>EVENTS LIST</h1>
+          <AddEventForm {...this.props}
+          getData={this.getData} />
 
-        <div className="container-cards">
-          {this.state.tasks.map(event => (
-            <EventCard
-              key={event.id}
-              event={event}
-              deleteEvent={this.deleteEvent}
-              {...this.props}
-            />
-          ))}
-        </div> */}
+          <div className="container-cards">
+            {this.state.events.map(event => (
+              <EventCard
+                key={event.id}
+                event={event}
+                deleteEvent={this.deleteEvent}
+                {...this.props}
+                getData={this.getData}
+              />
+            ))}
+          </div>
         </div>
       </>
     );

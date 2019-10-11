@@ -47,11 +47,11 @@ export default class Register extends Component {
         let newUser = {
           name: this.state.name,
           email: this.state.email,
-          password: this.state.password
+          password: this.state.password,
         };
         APIManager.post("users", newUser)
-            .then(() => {
-            sessionStorage.setItem("userId", newUser.id);
+            .then((createdUser) => {
+            sessionStorage.setItem("userId", createdUser.id);
             sessionStorage.setItem("email", this.state.email);
               //This determines which page you land on upon registration
               this.props.history.push("/")
