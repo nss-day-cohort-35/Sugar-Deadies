@@ -2,9 +2,25 @@
 // Purpose of the file to display individual tasks
 import React, { Component } from "react";
 import APIManager from "../../modules/APIManager";
+import EditTaskForm from "../task/EditTaskForm"
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
-import EditTaskForm from "./EditTaskForm";
+
+
 class TaskCard extends Component {
+
+	state = {
+		modal: false
+	};
+
+	toggle = () => {
+		this.setState(prevState => ({
+			modal: !prevState.modal
+		}));
+	}
+
+	activeUserId = parseInt(sessionStorage.getItem("userId"))
+
 	handleDelete = id => {
 		APIManager.delete("tasks", id).then(() => this.props.history.push("/tasks"))
 	};
@@ -17,7 +33,10 @@ class TaskCard extends Component {
 							Name:{this.props.task.taskTitle}
 							<span className="card-taskTitle"></span>
 						</h3>
-						<p>Date {this.props.task.taskComplete}</p>
+
+						<p>Entry:{this.props.task.taskEntry}</p>
+
+						<p>Date: {this.props.task.taskComplete}</p>
 
 						<button
 							type="button"
@@ -27,16 +46,25 @@ class TaskCard extends Component {
 						>
 							Delete
 						</button>
+
 						<button
 							type="button"
 							onClick={() => {
-								this.props.history.push(
-									`/tasks/${this.props.task.id}edit`
-								);
+								this.toggle()
 							}}
 						>
-							{/* <EditTaskForm>Edit</EditTaskForm> */}
+							Edit
 						</button>
+						<Modal
+							isOpen={this.state.modal}
+							toggle={this.toggle}
+							className={this.props.className}
+						>
+							<ModalBody>
+								<EditTaskForm {...this.props} taskId={this.props.task.id} />
+							</ModalBody>
+
+						</Modal>
 						<input type="checkbox" className="checkbox" />
 					</div>
 				</div>

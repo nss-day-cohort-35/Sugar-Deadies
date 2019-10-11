@@ -55,7 +55,7 @@ export default class Register extends Component {
             sessionStorage.setItem("email", this.state.email);
               //This determines which page you land on upon registration
               this.props.history.push("/tasks")
-            
+
             }
         )}
       }

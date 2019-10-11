@@ -7,6 +7,8 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 // import "./taskForm.css";
 
 class AddTaskForm extends Component {
+
+
 	//set the initial state
 	state = {
 		taskTitle: "",
@@ -15,14 +17,17 @@ class AddTaskForm extends Component {
 		taskEntry: "",
 		id: [],
 		loadingStatus: true,
-        modal: false
-  };
+		modal: false
+	};
 
-  toggle = () => {
-    this.setState(prevState => ({
-      modal: !prevState.modal
-    }));
-  }
+	activeUserId = parseInt(sessionStorage.getItem("userId"))
+
+
+	toggle = () => {
+		this.setState(prevState => ({
+			modal: !prevState.modal
+		}));
+	}
 
 	handleFieldChange = evt => {
 		const stateToChange = {};
@@ -31,34 +36,34 @@ class AddTaskForm extends Component {
 	};
 
 	addTask = evt => {
-        evt.preventDefault();
-        this.toggle();
-        if (this.state.taskTitle === "" || this.state.taskEntry === "") {
-      window.alert("Please input a task");
-    } else {
-		this.setState({ loadingStatus: true });
-		const addedTask = {
-			taskTitle: this.state.taskTitle,
-			taskEntry: this.state.taskEntry,
-            taskComplete: false
-		};
+		evt.preventDefault();
+		this.toggle();
+		if (this.state.taskTitle === "" || this.state.taskEntry === "") {
+			window.alert("Please input a task");
+		} else {
+			this.setState({ loadingStatus: true });
+			const addedTask = {
+				taskTitle: this.state.taskTitle,
+				taskEntry: this.state.taskEntry,
+				taskComplete: false
+			};
 
-		APIManager.post("tasks",addedTask).then(() =>
-			this.props.history.push("/")
-		);
-    };
-}
-	render() {
-            const closeBtn = (
-				<button className="close" onClick={this.toggle}>
-					&times;
-				</button>
+			APIManager.post("tasks", addedTask).then(() =>
+				this.props.history.push("/")
 			);
+		};
+	}
+	render() {
+		const closeBtn = (
+			<button className="close" onClick={this.toggle}>
+				&times;
+				</button>
+		);
 		return (
 			<>
 				{" "}
 				<Button color="success" onClick={this.toggle}>
-                Add Task				</Button>
+					Add Task</Button>
 				<Modal
 					isOpen={this.state.modal}
 					toggle={this.toggle}
@@ -103,7 +108,7 @@ class AddTaskForm extends Component {
 							color="primary"
 							onClick={this.addTask}
 						>
-							add 
+							Add
 						</Button>{" "}
 						<Button color="secondary" onClick={this.toggle}>
 							Cancel
@@ -113,6 +118,6 @@ class AddTaskForm extends Component {
 			</>
 		);
 	}
-    }
+}
 
 export default AddTaskForm;

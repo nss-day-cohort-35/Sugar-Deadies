@@ -12,6 +12,9 @@ class TaskList extends Component {
    modal: false
   };
 
+  activeUserId = parseInt(sessionStorage.getItem("userId"))
+
+
   toggle = () => {
     this.setState(prevState => ({
       modal: !prevState.modal

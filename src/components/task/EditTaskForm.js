@@ -9,20 +9,25 @@ class EditTaskForm extends Component {
 	//set the initial state
 	state = {
 		taskTitle: "",
-		taskComplete: "",
-		userId: "",
 		taskEntry: "",
+		taskComplete: false,
 		id: [],
 		loadingStatus: true,
-        modal: false,
-        allTasks: []
+		modal: false,
+		activeUser: parseInt(sessionStorage.getItem("userId"))
+  	};
 
-  };
+
+
 
   toggle = () => {
     this.setState(prevState => ({
       modal: !prevState.modal
-    }));
+	}));
+  }
+
+  closeToggle = () => {
+	this.setState({modal:false})
   }
 
 	handleFieldChange = evt => {
@@ -36,50 +41,44 @@ class EditTaskForm extends Component {
         this.toggle();
 		this.setState({ loadingStatus: true });
 		const editedTask = {
-			id: this.props.match.params.taskId,
+			id: parseInt(this.props.taskId),
 			taskTitle: this.state.taskTitle,
-            taskEntry: this.state.taskEntry,
-            userId: parseInt(this.state.userId)
+			taskEntry: this.state.taskEntry,
+			taskComplete: this.state.taskComplete,
+            userId: this.state.activeUser
 		};
-
-		APIManager.update(editedTask).then(() =>
-			this.props.history.push("/tasks")
+		console.log(editedTask)
+		APIManager.update("tasks", editedTask).then(() =>
+			this.props.history.push("/")
 		);
 	};
 
 	componentDidMount() {
-		APIManager.getAll("tasks").then(allTasks => {
-			APIManager.get(this.props.match.params.taskId).then(task => {
+		APIManager.get("tasks", this.props.taskId )
+			.then(task =>	{
 				this.setState({
 					taskTitle: task.taskTitle,
-					userId: task.userId,
 					loadingStatus: false,
-					allTasks: allTasks
 				});
 			});
-		});
-	}
+		};
 
 	render() {
-            const closeBtn = (
-				<button className="close" onClick={this.toggle}>
-					&times;
-				</button>
-			);
+            // const closeBtn = (
+			// 	<button className="close" onClick={this.toggle}>
+			// 		&times;
+			// 	</button>
+			// );
 		return (
 			<>
-				{" "}
-				<Button color="success" onClick={this.toggle}>
-					Edit Task
-				</Button>
-				<Modal
+				{/* <Modal
 					isOpen={this.state.modal}
 					toggle={this.toggle}
 					className={this.props.className}
 				>
 					<ModalHeader toggle={this.toggle} close={closeBtn}>
 						Edit Task
-					</ModalHeader>
+					</ModalHeader> */}
 					<ModalBody>
 						<form>
 							<fieldset>
@@ -93,7 +92,7 @@ class EditTaskForm extends Component {
 										value={this.state.taskTitle}
 									/>
 									<label htmlFor="taskTitle">
-										task title
+										Task Title
 									</label>
 
 									<input
@@ -106,18 +105,6 @@ class EditTaskForm extends Component {
 									/>
 									<label htmlFor="task">Entry</label>
 								</div>
-								<select
-									className="form-control"
-									id="taskId"
-									value={this.state.taskId}
-									onChange={this.handleFieldChange}
-								>
-									{this.state.allTasks.map(task => (
-										<option key={task.id} value={task.id}>
-											{task.taskTitle}
-										</option>
-									))}
-								</select>
 								<div className="alignRight">
 									<button
 										type="button"
@@ -132,17 +119,17 @@ class EditTaskForm extends Component {
 						</form>
 					</ModalBody>
 					<ModalFooter>
-						<Button
+						{/* <Button
 							color="primary"
 							onClick={this.updateExistingTask}
 						>
-							Edit 
-						</Button>{" "}
-						<Button color="secondary" onClick={this.toggle}>
+							Submit
+						</Button>{" "} */}
+						<Button color="secondary" onClick={this.closeToggle}>
 							Cancel
 						</Button>
 					</ModalFooter>
-				</Modal>
+				{/* </Modal> */}
 			</>
 		);
 	}
