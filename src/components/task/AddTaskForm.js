@@ -50,9 +50,9 @@ class AddTaskForm extends Component {
 				taskComplete: false
 			};
 
-			APIManager.post("tasks", addedTask).then(() =>
-				this.props.history.push("/")
-			);
+			APIManager.post("tasks", addedTask)
+				.then(() => { this.props.getData() }
+				);
 		};
 	}
 	render() {

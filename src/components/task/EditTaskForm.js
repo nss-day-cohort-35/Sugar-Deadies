@@ -2,7 +2,7 @@
 // Purpose of the file to hold edit task form function
 import React, { Component } from "react";
 import APIManager from "../../modules/APIManager";
-import { ModalBody } from "reactstrap";
+import { Button, ModalBody, ModalFooter} from "reactstrap";
 // import "./taskForm.css";
 
 class EditTaskForm extends Component {
@@ -10,17 +10,12 @@ class EditTaskForm extends Component {
 	state = {
 		taskTitle: "",
 		taskEntry: "",
+		dateOfCompletion: "",
 		taskComplete: false,
 		loadingStatus: true,
 		modal: false,
 		activeUser: parseInt(sessionStorage.getItem("userId"))
 	};
-
-	toggle = () => {
-		this.setState(prevState => ({
-			modal: !prevState.modal
-		}));
-	}
 
 	handleFieldChange = evt => {
 		const stateToChange = {};
@@ -30,37 +25,32 @@ class EditTaskForm extends Component {
 
 	updateExistingTask = evt => {
 		evt.preventDefault();
-		this.toggle();
 		this.setState({ loadingStatus: true });
 		const editedTask = {
 			id: parseInt(this.props.taskId),
 			taskTitle: this.state.taskTitle,
 			taskEntry: this.state.taskEntry,
 			taskComplete: this.state.taskComplete,
+			dateOfCompletion: this.state.dateOfCompletion,
 			userId: this.state.activeUser
 		};
 		console.log(editedTask)
 		APIManager.update("tasks", editedTask)
-			.then(() => {
-				APIManager.getAll("tasks")
-					.then(newTasks => {
-						this.setState({
-							tasks: newTasks
-						});
-					});
-				this.props.history.push("/")
-			});
+			.then(() => { this.props.getData() }
+			);
 	}
 
 
 	componentDidMount() {
-		APIManager.get("tasks", this.props.taskId)
-			.then(task => {
-				this.setState({
-					taskTitle: task.taskTitle,
-					loadingStatus: false,
+		return APIManager.get("tasks", this.props.taskId)
+			.then(
+				task => {
+					this.setState({
+						taskTitle: task.taskTitle,
+						taskEntry: task.taskEntry,
+						loadingStatus: false,
+					});
 				});
-			});
 	};
 
 	render() {
@@ -110,32 +100,31 @@ class EditTaskForm extends Component {
 									required
 									className="form-control"
 									onChange={this.handleFieldChange}
-									id="taskEntry"
-									value={this.state.taskEntry}
+									id="dateOfCompletion"
+									value={this.state.dateOfCompletion}
 								/>
 								<label htmlFor="task">Date of Completion</label>
 							</div>
-							{/* <div className="alignRight">
-								<button
-									type="button"
-									disabled={this.state.loadingStatus}
-									onClick={this.updateExistingTask}
-									className="btn btn-primary"
-								>
-									Submit
-									</button>
-									<button
-									type="button"
-									disabled={this.state.loadingStatus}
-									onClick={this.toggle}
-									className="btn btn-primary"
-								>
-									Cancel
-									</button>
-							</div> */}
+							<div className="alignRight">
+
+							</div>
 						</fieldset>
 					</form>
 				</ModalBody>
+				<ModalFooter>
+					<Button
+						type="button"
+						disabled={this.state.loadingStatus}
+						onClick={(evt) => {
+							this.updateExistingTask(evt)
+							this.props.toggle()
+						}}
+						className="btn btn-primary"
+					>
+						Submit
+									</Button>
+					<Button color="secondary" onClick={this.toggle}>Cancel</Button>
+				</ModalFooter>
 				{/* </Modal> */}
 			</>
 		);

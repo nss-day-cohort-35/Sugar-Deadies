@@ -23,15 +23,8 @@ class TaskCard extends Component {
 
 	handleDelete = id => {
 		APIManager.delete("tasks", id)
-			.then(() => {
-				APIManager.getAll("tasks")
-					.then(newTasks => {
-						this.setState({
-							tasks: newTasks
-						});
-					})
-				// this.props.history.push("/")
-			})
+			.then(() => { this.props.getData() }
+			);
 	}
 
 	render() {
@@ -74,6 +67,9 @@ class TaskCard extends Component {
 						Task Complete?
 						<input
 							type="checkbox"
+							onClick={() =>
+								this.handleDelete(this.props.task.id)
+							}
 							className="checkbox" />
 
 						<Modal
@@ -87,12 +83,9 @@ class TaskCard extends Component {
 								Edit Task
 							</ModalHeader>
 							<ModalBody>
-								<EditTaskForm {...this.props} taskId={this.props.task.id} />
+								<EditTaskForm {...this.props} taskId={this.props.task.id} getData={this.props.getData} toggle={this.toggle} />
 							</ModalBody>
-							<ModalFooter>
-								<Button color="primary" onClick={this.updateExistingTask}>Submit</Button>{' '}
-								<Button color="secondary" onClick={this.toggle}>Cancel</Button>
-							</ModalFooter>
+
 
 						</Modal>
 

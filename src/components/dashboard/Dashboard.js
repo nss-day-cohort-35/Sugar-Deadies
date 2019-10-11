@@ -11,7 +11,7 @@ class Dashboard extends Component {
         return (
             <>
             <section className="left">
-            {/* <FriendList /> */}
+            
             </section>
 
             <section className="center">
