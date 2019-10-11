@@ -123,7 +123,7 @@ class EditTaskForm extends Component {
 					>
 						Submit
 									</Button>
-					<Button color="secondary" onClick={this.toggle}>Cancel</Button>
+					<Button color="secondary" onClick={this.props.toggle}>Cancel</Button>
 				</ModalFooter>
 				{/* </Modal> */}
 			</>
