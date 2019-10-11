@@ -22,15 +22,30 @@ class TaskCard extends Component {
 	activeUserId = parseInt(sessionStorage.getItem("userId"))
 
 	handleDelete = id => {
-		APIManager.delete("tasks", id).then(() => this.props.history.push("/tasks"))
-	};
+		APIManager.delete("tasks", id)
+			.then(() => {
+				APIManager.getAll("tasks")
+					.then(newTasks => {
+						this.setState({
+							tasks: newTasks
+						});
+					})
+				// this.props.history.push("/")
+			})
+	}
+
 	render() {
+		const closeBtn = (
+			<button className="close" onClick={this.toggle}>
+				&times;
+			</button>
+		);
 		return (
 			<>
 				<div className="card">
 					<div className="card-content">
 						<h3>
-							Name:{this.props.task.taskTitle}
+							Task Name:{this.props.task.taskTitle}
 							<span className="card-taskTitle"></span>
 						</h3>
 
@@ -55,17 +70,32 @@ class TaskCard extends Component {
 						>
 							Edit
 						</button>
+
+						Task Complete?
+						<input
+							type="checkbox"
+							className="checkbox" />
+
 						<Modal
 							isOpen={this.state.modal}
 							toggle={this.toggle}
 							className={this.props.className}
 						>
+							<ModalHeader
+								toggle={this.toggle}
+								close={closeBtn}>
+								Edit Task
+							</ModalHeader>
 							<ModalBody>
 								<EditTaskForm {...this.props} taskId={this.props.task.id} />
 							</ModalBody>
+							<ModalFooter>
+								<Button color="primary" onClick={this.updateExistingTask}>Submit</Button>{' '}
+								<Button color="secondary" onClick={this.toggle}>Cancel</Button>
+							</ModalFooter>
 
 						</Modal>
-						<input type="checkbox" className="checkbox" />
+
 					</div>
 				</div>
 			</>

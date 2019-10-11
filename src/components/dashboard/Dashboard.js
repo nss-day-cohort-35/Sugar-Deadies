@@ -21,7 +21,6 @@ class Dashboard extends Component {
             </section>
 
             <section className="right">
-            
             {/* <MessageList />*/}
             </section>
 

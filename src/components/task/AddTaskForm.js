@@ -12,9 +12,10 @@ class AddTaskForm extends Component {
 	//set the initial state
 	state = {
 		taskTitle: "",
-		taskComplete: "",
-		userId: "",
+		taskComplete: false,
 		taskEntry: "",
+		dateOfCompletion: "",
+		userId: "",
 		id: [],
 		loadingStatus: true,
 		modal: false
@@ -45,6 +46,7 @@ class AddTaskForm extends Component {
 			const addedTask = {
 				taskTitle: this.state.taskTitle,
 				taskEntry: this.state.taskEntry,
+				dateOfCompletion: this.state.dateOfCompletion,
 				taskComplete: false
 			};
 
@@ -76,6 +78,9 @@ class AddTaskForm extends Component {
 						<form>
 							<fieldset>
 								<div className="formgrid">
+									<label htmlFor="taskTitle">
+										Task Name:
+									</label>
 									<input
 										type="text"
 										required
@@ -84,10 +89,8 @@ class AddTaskForm extends Component {
 										id="taskTitle"
 										value={this.state.taskTitle}
 									/>
-									<label htmlFor="taskTitle">
-										Task Name
-									</label>
 
+									<label htmlFor="task">Task Entry:</label>
 									<input
 										type="text"
 										required
@@ -96,7 +99,16 @@ class AddTaskForm extends Component {
 										id="taskEntry"
 										value={this.state.taskEntry}
 									/>
-									<label htmlFor="task">Entry</label>
+
+									<label htmlFor="task">Date to Complete By:</label>
+									<input
+										type="date"
+										required
+										className="form-control"
+										onChange={this.handleFieldChange}
+										id="taskCompletion"
+										value={this.state.dateOfCompletion}
+									/>
 								</div>
 								<div className="alignRight">
 								</div>
