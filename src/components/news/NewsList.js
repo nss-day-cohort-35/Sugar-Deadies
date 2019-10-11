@@ -45,6 +45,7 @@ class NewsList extends Component {
   render() {
     return (
       <>
+      <div className="news-container">
       <h1>NEWS LIST</h1>
       {/* <AddNewsForm {...this.props}/> */}
 
@@ -58,6 +59,7 @@ class NewsList extends Component {
             />
           ))}
         </div> */}
+        </div>
       </>
     );
   }

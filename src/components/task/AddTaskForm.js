@@ -5,6 +5,8 @@ import React, { Component } from "react";
 import APIManager from "../../modules/APIManager";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 // import "./taskForm.css";
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { fas fa-plus-circle fa-1x } from '@fortawesome/free-solid-svg-icons'
 
 class AddTaskForm extends Component {
 
@@ -23,12 +25,13 @@ class AddTaskForm extends Component {
 
 	activeUserId = parseInt(sessionStorage.getItem("userId"))
 
+//   const element = <FontAwesomeIcon icon={fas fa-plus-circle fa-1x} />
 
-	toggle = () => {
-		this.setState(prevState => ({
-			modal: !prevState.modal
-		}));
-	}
+  toggle = () => {
+    this.setState(prevState => ({
+      modal: !prevState.modal
+    }));
+  }
 
 	handleFieldChange = evt => {
 		const stateToChange = {};
@@ -64,8 +67,8 @@ class AddTaskForm extends Component {
 		return (
 			<>
 				{" "}
-				<Button color="success" onClick={this.toggle}>
-					Add Task</Button>
+				<Button className="addTask" color="success" onClick={this.toggle}>
+                Add Task</Button>
 				<Modal
 					isOpen={this.state.modal}
 					toggle={this.toggle}
