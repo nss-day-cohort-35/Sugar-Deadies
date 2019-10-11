@@ -10,7 +10,6 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
 class AddTaskForm extends Component {
 
-
 	//set the initial state
 	state = {
 		taskTitle: "",
@@ -68,7 +67,7 @@ class AddTaskForm extends Component {
 			<>
 				{" "}
 				<Button className="addTask" color="success" onClick={this.toggle}>
-                Add Task</Button>
+                Add New Task</Button>
 				<Modal
 					isOpen={this.state.modal}
 					toggle={this.toggle}
@@ -120,7 +119,7 @@ class AddTaskForm extends Component {
 					</ModalBody>
 					<ModalFooter>
 						<Button
-							color="primary"
+							color="primary class=add-task-btn"
 							onClick={this.addTask}
 						>
 							Add

@@ -44,7 +44,7 @@ class EventList extends Component {
     return (
       <>
       <div className="events-container">
-      <h1>EVENTS LIST</h1>
+      <h1>Events</h1>
       {/* <AddEventForm {...this.props}/>
 
         <div className="container-cards">

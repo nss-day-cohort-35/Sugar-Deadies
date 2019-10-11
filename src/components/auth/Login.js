@@ -4,6 +4,7 @@ import React, { Component } from "react"
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import Register from "./Register"
 import APIManager from "../../modules/APIManager";
+import { breakStatement } from "@babel/types";
 
 //Reactstrap Modal code from line 10 to 21
 class Login extends Component {
@@ -67,17 +68,16 @@ render() {
                     <form onSubmit={this.handleLogin}>
                         <fieldset>
                             <div className="formgrid">
+                            <label htmlFor="inputEmail">Email address</label><br></br>
                                 <input onChange={this.handleFieldChange} type="email"
                                     id="email"
                                     placeholder="Email address"
-                                    required="" autoFocus="" />
-                                <label htmlFor="inputEmail">Email address</label>
-
+                                    required="" autoFocus="" /><br></br>
+                                    <label htmlFor="inputPassword">Password</label><br></br>
                                 <input onChange={this.handleFieldChange} type="password"
                                     id="password"
                                     placeholder="Password"
                                     required="" />
-                                <label htmlFor="inputPassword">Password</label>
                             </div>
                         </fieldset>
                     </form>

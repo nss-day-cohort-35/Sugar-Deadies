@@ -36,13 +36,13 @@ class TaskCard extends Component {
 		return (
 			<>
 				<div className="card">
-					<div className="card-content">
+					<div className="task-card-content">
 						<h3>
-							Task Name:{this.props.task.taskTitle}
+							{this.props.task.taskTitle}
 							<span className="card-taskTitle"></span>
 						</h3>
 
-						<p>Entry:{this.props.task.taskEntry}</p>
+						<p><em>Additional Details:</em><br></br>{this.props.task.taskEntry}</p>
 
 						<p>Date: {this.props.task.taskComplete}</p>
 
@@ -65,12 +65,16 @@ class TaskCard extends Component {
 						</button>
 
 						Task Complete?
-						<input
-							type="checkbox"
+						<div class="container">
+  						<div class="round">
+						<input type="checkbox" id="checkbox"
 							onClick={() =>
 								this.handleDelete(this.props.task.id)
 							}
-							className="checkbox" />
+							 />
+							<label for="checkbox"></label>
+							</div>
+							</div>
 
 						<Modal
 							isOpen={this.state.modal}

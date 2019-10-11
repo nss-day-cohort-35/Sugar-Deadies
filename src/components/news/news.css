@@ -1,0 +1,25 @@
+.addNews {
+color: white;
+    background-color: #F89938;
+    font-family: 'Raleway', sans-serif;
+    text-transform: uppercase;
+    font-weight: bolder;
+    border: none;
+    font-size: 15px;
+    border: none;
+    margin-left: 22px;
+    margin-right: 22px;
+    margin-bottom: 20px;
+}
+
+.modal-header {
+    background-color: #669966;
+}
+
+label {
+    font-family: 'Raleway', sans-serif;
+    text-transform: none;
+    color: #669966;
+    font-weight: bolder;
+    padding-top: 10px;
+}
