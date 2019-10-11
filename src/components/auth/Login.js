@@ -34,7 +34,7 @@ class Login extends Component {
         e.preventDefault()
         APIManager.getAll("users").then((users) => {
             let singleUser = users.find(
-                user => 
+                user =>
                 user.password.toLowerCase() === this.state.password.toLowerCase() &&
                 user.email.toLowerCase() === this.state.email.toLowerCase()
                 );
@@ -45,7 +45,7 @@ class Login extends Component {
             } else if (singleUser) {
                 sessionStorage.setItem("userId", singleUser.id);
                 sessionStorage.setItem("email", this.state.email);
-                this.props.history.push("/tasks");
+                this.props.history.push("/");
             } else {
             window.alert("User email and password do not match")
         }

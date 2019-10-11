@@ -7,22 +7,28 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 // import "./taskForm.css";
 
 class AddTaskForm extends Component {
+
+
 	//set the initial state
 	state = {
 		taskTitle: "",
-		taskComplete: "",
-		userId: "",
+		taskComplete: false,
 		taskEntry: "",
+		dateOfCompletion: "",
+		userId: "",
 		id: [],
 		loadingStatus: true,
-        modal: false
-  };
+		modal: false
+	};
 
-  toggle = () => {
-    this.setState(prevState => ({
-      modal: !prevState.modal
-    }));
-  }
+	activeUserId = parseInt(sessionStorage.getItem("userId"))
+
+
+	toggle = () => {
+		this.setState(prevState => ({
+			modal: !prevState.modal
+		}));
+	}
 
 	handleFieldChange = evt => {
 		const stateToChange = {};
@@ -31,34 +37,35 @@ class AddTaskForm extends Component {
 	};
 
 	addTask = evt => {
-        evt.preventDefault();
-        this.toggle();
-        if (this.state.taskTitle === "" || this.state.taskEntry === "") {
-      window.alert("Please input a task");
-    } else {
-		this.setState({ loadingStatus: true });
-		const addedTask = {
-			taskTitle: this.state.taskTitle,
-			taskEntry: this.state.taskEntry,
-            taskComplete: false
-		};
+		evt.preventDefault();
+		this.toggle();
+		if (this.state.taskTitle === "" || this.state.taskEntry === "") {
+			window.alert("Please input a task");
+		} else {
+			this.setState({ loadingStatus: true });
+			const addedTask = {
+				taskTitle: this.state.taskTitle,
+				taskEntry: this.state.taskEntry,
+				dateOfCompletion: this.state.dateOfCompletion,
+				taskComplete: false
+			};
 
-		APIManager.post("tasks",addedTask).then(() =>
-			this.props.history.push("/")
-		);
-    };
-}
+			APIManager.post("tasks", addedTask)
+				.then(() => { this.props.getData() }
+				);
+		};
+	}
 	render() {
-            const closeBtn = (
-				<button className="close" onClick={this.toggle}>
-					&times;
+		const closeBtn = (
+			<button className="close" onClick={this.toggle}>
+				&times;
 				</button>
-			);
+		);
 		return (
 			<>
 				{" "}
 				<Button color="success" onClick={this.toggle}>
-                Add Task				</Button>
+					Add Task</Button>
 				<Modal
 					isOpen={this.state.modal}
 					toggle={this.toggle}
@@ -71,6 +78,9 @@ class AddTaskForm extends Component {
 						<form>
 							<fieldset>
 								<div className="formgrid">
+									<label htmlFor="taskTitle">
+										Task Name:
+									</label>
 									<input
 										type="text"
 										required
@@ -79,10 +89,8 @@ class AddTaskForm extends Component {
 										id="taskTitle"
 										value={this.state.taskTitle}
 									/>
-									<label htmlFor="taskTitle">
-										Task Name
-									</label>
 
+									<label htmlFor="task">Task Entry:</label>
 									<input
 										type="text"
 										required
@@ -91,7 +99,16 @@ class AddTaskForm extends Component {
 										id="taskEntry"
 										value={this.state.taskEntry}
 									/>
-									<label htmlFor="task">Entry</label>
+
+									<label htmlFor="task">Date to Complete By:</label>
+									<input
+										type="date"
+										required
+										className="form-control"
+										onChange={this.handleFieldChange}
+										id="taskCompletion"
+										value={this.state.dateOfCompletion}
+									/>
 								</div>
 								<div className="alignRight">
 								</div>
@@ -103,7 +120,7 @@ class AddTaskForm extends Component {
 							color="primary"
 							onClick={this.addTask}
 						>
-							add 
+							Add
 						</Button>{" "}
 						<Button color="secondary" onClick={this.toggle}>
 							Cancel
@@ -113,6 +130,6 @@ class AddTaskForm extends Component {
 			</>
 		);
 	}
-    }
+}
 
 export default AddTaskForm;
