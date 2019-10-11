@@ -1,14 +1,14 @@
 // Authors: Gradi, Mark, Quin, Sage
 // Purpose of the file to display all task
 import React, { Component } from "react";
-// import TaskCard from "../task/TaskCard";
+import NewsCard from "./NewsCard"
 import APIManager from "../../modules/APIManager";
-// import AddTaskForm from "./AddTaskForm";
+import AddNewsForm from "./AddNewsForm"
 
 class NewsList extends Component {
   //define what this component needs to render
    state = {
-   news: [],
+   allNews: [],
    modal: false
   };
 
@@ -23,21 +23,27 @@ class NewsList extends Component {
 
   deleteTask = id => {
     APIManager.delete("news", id).then(() => {
-      APIManager.getAll("news").then(newNews => {
+      APIManager.getAll("news").then(arrayOfNews => {
         this.setState({
-          news: newNews
+          allNews: arrayOfNews
         });
       });
     });
   };
 
-  getData = () => APIManager.getAll("news");
+  getData = () => APIManager.getAll("news").then(arrayOfNews => {
+    this.setState({
+      allNews: arrayOfNews
+    });
+  });
 
   componentDidMount() {
     //getAll from APIManager and hang on to that data; put it in state
-    APIManager.getAll("news").then(news => {
+    console.log("news list mounted")
+    APIManager.getAll("news").then(arrayOfNews => {
+      console.log(arrayOfNews)
       this.setState({
-        news: news
+        allNews: arrayOfNews
       });
     });
   }
@@ -46,19 +52,21 @@ class NewsList extends Component {
     return (
       <>
       <div className="news-container">
-      <h1>NEWS LIST</h1>
-      {/* <AddNewsForm {...this.props}/> */}
+      <h1>News</h1>
+      <AddNewsForm {...this.props} 
+      getData  = {this.getData}/>
 
-        {/* <div className="container-cards">
-          {this.state.news.map(task => (
+        <div className="container-cards">
+          {this.state.allNews.map(singleNews => (
             <NewsCard
-              key={news.id}
-              news={news}
+              key={singleNews.id}
+              news={singleNews}
               deleteNews={this.deleteNews}
               {...this.props}
+              getData  = {this.getData}
             />
           ))}
-        </div> */}
+        </div>
         </div>
       </>
     );

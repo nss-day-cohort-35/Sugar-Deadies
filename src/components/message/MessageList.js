@@ -44,7 +44,7 @@ class MessageList extends Component {
     return (
       <>
       <div className="messages-container">
-      <h1>Messages LIST</h1>
+      <h1>Messages</h1>
       {/* <AddEventForm {...this.props}/>
 
         <div className="container-cards">

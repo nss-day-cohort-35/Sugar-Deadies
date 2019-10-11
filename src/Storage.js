@@ -24,37 +24,36 @@ import '../src/index.css'
 class Storage extends Component {
   //On startup, there is no user (user: false)
   state = {
-    user: sessionStorage.getItem("credentials") !== null
+    user: sessionStorage.getItem("userId") !== null
   }
 
-  // Check if credentials are in session storage
+  // Check if userId are in session storage
   //returns true/false
-  isAuthenticated = () => sessionStorage.getItem("credentials") !== null
+  isAuthenticated = () => sessionStorage.getItem("userId") !== null
 
   setUser = (authObj) => {
     sessionStorage.setItem(
-      "credentials",
+      "userId",
       JSON.stringify(authObj)
     )
+  }
+  triggerRender = () => {
     this.setState({
       user: this.isAuthenticated()
     });
   }
 
   clearUser = () => {
-    sessionStorage.clear()
-
-    this.setState({
-      user: this.isAuthenticated()
-    });
+    sessionStorage.clear();
   }
 
   render() {
     return (
       <React.Fragment>
-        <NavBar user={this.state.user} clearUser={this.clearUser} />
+        <NavBar user={this.state.user} triggerRender={this.triggerRender} clearUser={this.clearUser} />
         <ApplicationViews user={this.state.user}
-          setUser={this.setUser} />
+          setUser={this.setUser}
+          triggerRender={this.triggerRender} />
       </React.Fragment>
     )
   }

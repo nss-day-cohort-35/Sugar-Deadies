@@ -16,6 +16,9 @@ class Dashboard extends Component {
             </section>
 
             <section className="mainSection">
+            <section className="welcome">
+            <img className="logo" src={require('../../images/dayofthedeadlogo.png')} alt="logo" />
+            </section>
             <div className="taskNews">
             <NewsList {...this.props} />
             <TaskList {...this.props}/>

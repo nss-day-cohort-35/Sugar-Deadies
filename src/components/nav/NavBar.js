@@ -10,7 +10,8 @@ class NavBar extends Component {
     isAuthenticated = () => sessionStorage.getItem("activeUser") !== null
 
     logOut = (event) => {
-        sessionStorage.removeItem("activeUser")
+        this.props.clearUser()
+        this.props.triggerRender()
         this.props.history.push("/login")
     }
 
@@ -24,7 +25,12 @@ class NavBar extends Component {
           </picture>
         </div>
                 <ul className="nav nav-pills nav-fill">
+                    {(this.props.user) ?
+                    <>
                     <li><span className="nav-link" onClick={this.logOut}>Logout</span></li>
+                    </>
+                    : null
+                }
                 </ul>
             </nav>
         )

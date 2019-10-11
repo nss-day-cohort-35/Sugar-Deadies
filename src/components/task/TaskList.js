@@ -50,8 +50,8 @@ class TaskList extends Component {
         return (
             <>
               <div className="tasks-container">
-                <h1>TASK LIST</h1>
-                <AddTaskForm 
+                <h1>Tasks</h1>
+                <AddTaskForm
                 {...this.props}
                 getData={this.getData} />
                 <div className="container-cards">

@@ -44,7 +44,7 @@ class FriendList extends Component {
     return (
       <>
       <div className="friends-container">
-      <h1>Friends LIST</h1>
+      <h1>Friends</h1>
     {/* <AddEventForm {...this.props}/> */}
 
     <div className="friends-container-cards">

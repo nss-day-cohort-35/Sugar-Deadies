@@ -29,7 +29,7 @@ class EventList extends Component {
     });
   };
 
-  getData = () => APIManager.getAll("events").then (events => {
+  getData = () => APIManager.getAll("events").then(events => {
     this.setState({
       events: events
     })
@@ -48,9 +48,8 @@ class EventList extends Component {
     return (
       <>
         <div className="events-container">
-          <h1>EVENTS LIST</h1>
-          <AddEventForm {...this.props}
-          getData={this.getData} />
+          <h1>Events</h1>
+          <AddEventForm {...this.props} />
 
           <div className="container-cards">
             {this.state.events.map(event => (
