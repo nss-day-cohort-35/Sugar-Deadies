@@ -43,6 +43,7 @@ class EventList extends Component {
   render() {
     return (
       <>
+      <div className="events-container">
       <h1>EVENTS LIST</h1>
       {/* <AddEventForm {...this.props}/>
 
@@ -56,6 +57,7 @@ class EventList extends Component {
             />
           ))}
         </div> */}
+        </div>
       </>
     );
   }
