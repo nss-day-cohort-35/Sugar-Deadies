@@ -26,7 +26,7 @@ export default {
         body: JSON.stringify(newResource)
     }).then(data => data.json())
   },
-  update(resource,editedResource) {
+  update(resource, editedResource) {
     return fetch(`${remoteURL}/${resource}/${editedResource.id}`, {
       method: "PUT",
       headers: {

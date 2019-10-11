@@ -5,7 +5,7 @@ import { Route } from "react-router-dom";
 import React, { Component } from "react";
 import Login from "./auth/Login"
 import Register from "./auth/Register"
-import TaskList from "./task/TaskList"
+// import TaskList from "./task/TaskList"
 import Dashboard from "./dashboard/Dashboard";
 // import EditTaskForm from "./EditTaskForm";
 // import AddTaskForm from "./AddTaskForm";
