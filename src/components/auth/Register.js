@@ -53,6 +53,8 @@ export default class Register extends Component {
             .then(() => {
             sessionStorage.setItem("userId", newUser.id);
             sessionStorage.setItem("email", this.state.email);
+            this.props.triggerRender();
+
               //This determines which page you land on upon registration
               this.props.history.push("/")
             }

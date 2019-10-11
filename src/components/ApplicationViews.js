@@ -25,11 +25,11 @@ export default class ApplicationViews extends Component {
         />
 
         <Route exact path="/login" render={props => {
-          return <Login setUser={this.props.setUser} {...props} />
+          return <Login triggerRender={this.props.triggerRender} setUser={this.props.setUser} {...props} />
         }} />
 
         <Route exact path="/register" render={props => {
-          return <Register setUser={this.props.setUser} {...props} />
+          return <Register triggerRender={this.props.triggerRender} setUser={this.props.setUser} {...props} />
         }} />
 
       </React.Fragment>
