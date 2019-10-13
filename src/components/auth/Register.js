@@ -82,11 +82,11 @@ export default class Register extends Component {
                     required="" autoFocus="" />
                   <label htmlFor="inputName">Name</label>
 
+                  <label htmlFor="inputEmail">Email address</label><br></br>
                   <input onChange={this.handleFieldChange} type="email"
                     id="email"
                     placeholder="Email address"
                     required="" autoFocus="" />
-                  <label htmlFor="inputEmail">Email address</label>
 
                   <input onChange={this.handleFieldChange} type="password"
                     id="password"

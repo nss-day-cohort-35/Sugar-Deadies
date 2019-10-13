@@ -44,7 +44,7 @@ class NewsCard extends Component {
 
 						<p>Article URL: {this.props.news.articleURL}</p>
 
-						<p>Date: {this.props.news.createDate}</p>
+						<p>Date: {this.props.news.createDate} </p>
 
 						<button
 							type="button"

@@ -8,7 +8,7 @@ export default {
       return fetch(`${remoteURL}/${resource}/${id}`).then(result => result.json())
     },
     getAll(resource, userId) {
-      return fetch(`${remoteURL}/${resource}?userId=${userId}&_sort=date&order=asc`).then(result => result.json())
+      return fetch(`${remoteURL}/${resource}?userId=${userId}&_sort=timeStamp`).then(result => result.json())
     },
 
     delete(resource ,id) {
