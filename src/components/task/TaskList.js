@@ -50,7 +50,10 @@ class TaskList extends Component {
         return (
             <>
               <div className="tasks-container">
+              <div className= "tasks-intro">
                 <h1>Tasks</h1>
+                <img className="task-img" src={require('../../images/createyourtask.png')} alt="logo" />
+                </div>
                 <AddTaskForm
                 {...this.props}
                 getData={this.getData} />

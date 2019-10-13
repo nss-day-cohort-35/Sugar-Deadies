@@ -1,0 +1,25 @@
+.events-intro{
+    display: flex;
+    justify-content: space-between;
+      }
+
+.events-img{
+ height: 130px;
+width: 130px;
+padding-top: 10px;
+padding-bottom: 20px;
+}
+
+.addEvent {
+    color: white;
+    background-color: #F89938;
+    font-family: 'Raleway', sans-serif;
+    text-transform: uppercase;
+    font-weight: bolder;
+    border: none;
+    font-size: 15px;
+    border: none;
+    margin-left: 22px;
+    margin-right: 22px;
+    margin-bottom: 20px;
+    }

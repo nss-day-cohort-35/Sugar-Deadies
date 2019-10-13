@@ -48,7 +48,10 @@ class EventList extends Component {
     return (
       <>
         <div className="events-container">
+        <div className="events-intro">
           <h1>Events</h1>
+          <img className="events-img" src={require('../../images/addyourevent.png')} alt="logo" />
+          </div>
           <AddEventForm {...this.props} />
 
           <div className="container-cards">

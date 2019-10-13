@@ -44,7 +44,10 @@ class MessageList extends Component {
     return (
       <>
       <div className="messages-container">
+      <div className="message-intro">
       <h1>Messages</h1>
+      <img className="message-img" src={require('../../images/chatwithyourfriends.png')} alt="logo" />
+      </div>
       {/* <AddEventForm {...this.props}/>
 
         <div className="container-cards">
