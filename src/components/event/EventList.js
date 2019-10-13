@@ -13,6 +13,9 @@ class EventList extends Component {
     modal: false
   };
 
+  activeUserId = parseInt(sessionStorage.getItem("userId"))
+
+
   toggle = () => {
     this.setState(prevState => ({
       modal: !prevState.modal
@@ -29,7 +32,7 @@ class EventList extends Component {
     });
   };
 
-  getData = () => APIManager.getAll("events").then(events => {
+  getData = () => APIManager.getAll("events", this.activeUserId).then(events => {
     this.setState({
       events: events
     })
@@ -37,7 +40,7 @@ class EventList extends Component {
 
   componentDidMount() {
     //getAll from APIManager and hang on to that data; put it in state
-    APIManager.getAll("events").then(events => {
+    APIManager.getAll("events", this.activeUserId).then(events => {
       this.setState({
         events: events
       });
@@ -52,8 +55,9 @@ class EventList extends Component {
           <h1>Events</h1>
           <img className="events-img" src={require('../../images/addyourevent.png')} alt="logo" />
           </div>
-          <AddEventForm {...this.props} />
-
+          <AddEventForm {...this.props}
+          getData={this.getData} />
+2
           <div className="container-cards">
             {this.state.events.map(event => (
               <EventCard

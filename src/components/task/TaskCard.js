@@ -44,7 +44,7 @@ class TaskCard extends Component {
 
 						<p><em>Additional Details:</em><br></br>{this.props.task.taskEntry}</p>
 
-						<p>Date: {this.props.task.taskComplete}</p>
+						<p>Date: {this.props.task.dateOfCompletion}</p>
 
 						<button
 							type="button"
@@ -65,8 +65,8 @@ class TaskCard extends Component {
 						</button>
 
 						Task Complete?
-						<div class="container">
-  						<div class="round">
+						<div className="container">
+  						<div className="round">
 						<input type="checkbox" id="checkbox"
 							onClick={() =>
 								this.handleDelete(this.props.task.id)

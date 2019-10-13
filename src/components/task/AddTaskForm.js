@@ -16,7 +16,6 @@ class AddTaskForm extends Component {
 		taskComplete: false,
 		taskEntry: "",
 		dateOfCompletion: "",
-		userId: "",
 		id: [],
 		loadingStatus: true,
 		modal: false
@@ -46,6 +45,7 @@ class AddTaskForm extends Component {
 		} else {
 			this.setState({ loadingStatus: true });
 			const addedTask = {
+				userId: this.activeUserId,
 				taskTitle: this.state.taskTitle,
 				taskEntry: this.state.taskEntry,
 				dateOfCompletion: this.state.dateOfCompletion,
@@ -108,7 +108,7 @@ class AddTaskForm extends Component {
 										required
 										className="form-control"
 										onChange={this.handleFieldChange}
-										id="taskCompletion"
+										id="dateOfCompletion"
 										value={this.state.dateOfCompletion}
 									/>
 								</div>

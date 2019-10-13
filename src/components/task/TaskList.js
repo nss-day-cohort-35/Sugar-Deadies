@@ -31,7 +31,7 @@ class TaskList extends Component {
         });
     };
 
-    getData = () => APIManager.getAll("tasks").then(tasks => {
+    getData = () => APIManager.getAll("tasks", this.activeUserId).then(tasks => {
         this.setState({
             tasks: tasks
         });
@@ -39,7 +39,7 @@ class TaskList extends Component {
 
     componentDidMount() {
         //getAll from APIManager and hang on to that data; put it in state
-        APIManager.getAll("tasks").then(tasks => {
+        APIManager.getAll("tasks", this.activeUserId).then(tasks => {
             this.setState({
                 tasks: tasks
             });
