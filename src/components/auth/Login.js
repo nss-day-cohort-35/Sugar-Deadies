@@ -62,6 +62,9 @@ render() {
     return (
 
         <div>
+            <div className="header">
+            <img className="welcomelogo" src={require('../../images/loginbanner.png')} alt="logo" />
+            </div>
             <Button color="success" onClick={this.toggle}>Login</Button>
             <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                 <ModalHeader toggle={this.toggle} close={closeBtn}>Please Sign In</ModalHeader>

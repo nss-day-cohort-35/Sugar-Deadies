@@ -44,9 +44,11 @@ class FriendList extends Component {
     return (
       <>
       <div className="friends-container">
+      <div className="friends-intro">
       <h1>Friends</h1>
+      <img className="task-img" src={require('../../images/addfriends.png')} alt="logo" />
     {/* <AddEventForm {...this.props}/> */}
-
+</div>
     <div className="friends-container-cards">
    {/* {this.state.tasks.map(event => (
    <EventCard
