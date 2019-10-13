@@ -17,7 +17,10 @@ class Dashboard extends Component {
 
             <section className="mainSection">
             <section className="welcome">
-            <img className="logo" src={require('../../images/dayofthedeadlogo.png')} alt="logo" />
+            <img className="welcomelogo" src={require('../../images/welcomeimage.png')} alt="logo" />
+            <h4>Day of the Dead or Dia De Los Muertos,
+             is a two day holiday that reunites the living and dead. It is a rare holiday for
+             celebrating death and life. It is unlike any holiday where mourning is exchanged for celebration.</h4>
             </section>
             <div className="taskNews">
             <NewsList {...this.props} />

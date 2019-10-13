@@ -53,7 +53,10 @@ class NewsList extends Component {
     return (
       <>
       <div className="news-container">
+      <div className="news-intro">
       <h1>News</h1>
+      <img className="news-img" src={require('../../images/addyournews.png')} alt="logo" />
+      </div>
       <AddNewsForm {...this.props} 
       getData  = {this.getData}/>
 

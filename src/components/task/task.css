@@ -55,3 +55,15 @@
         background-color: #66bb6a;
         border-color: #66bb6a;
       }
+
+.tasks-intro{
+display: flex;
+justify-content: space-between;
+}
+
+.task-img{
+  height: 130px;
+  width: 130px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+}

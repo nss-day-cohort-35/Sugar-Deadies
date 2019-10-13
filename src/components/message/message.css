@@ -1,0 +1,11 @@
+.message-intro{
+    display: flex;
+    justify-content: space-between;
+    }
+    
+    .message-img{
+      height: 130px;
+      width: 130px;
+      padding-top: 10px;
+      padding-bottom: 20px;
+    }
