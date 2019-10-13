@@ -24,7 +24,7 @@ class NewsList extends Component {
 
   deleteTask = id => {
     APIManager.delete("news", id).then(() => {
-      APIManager.getAll("news").then(arrayOfNews => {
+      APIManager.getAll("news", this.activeUserId).then(arrayOfNews => {
         this.setState({
           allNews: arrayOfNews
         });
@@ -32,7 +32,7 @@ class NewsList extends Component {
     });
   };
 
-  getData = () => APIManager.getAll("news").then(arrayOfNews => {
+  getData = () => APIManager.getAll("news", this.activeUserId).then(arrayOfNews => {
     this.setState({
       allNews: arrayOfNews
     });
@@ -41,7 +41,7 @@ class NewsList extends Component {
   componentDidMount() {
     //getAll from APIManager and hang on to that data; put it in state
     console.log("news list mounted")
-    APIManager.getAll("news").then(arrayOfNews => {
+    APIManager.getAll("news", this.activeUserId).then(arrayOfNews => {
       console.log(arrayOfNews)
       this.setState({
         allNews: arrayOfNews

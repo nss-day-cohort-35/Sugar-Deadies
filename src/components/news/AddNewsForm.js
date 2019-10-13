@@ -46,6 +46,7 @@ class AddNewsForm extends Component {
 		} else {
 			this.setState({ loadingStatus: true });
 			const addedNews = {
+				userId: this.activeUserId,
 				articleTitle: this.state.articleTitle,
 				articleURL: this.state.articleURL,
 				createDate: this.state.createDate,

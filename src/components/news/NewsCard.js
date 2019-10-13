@@ -42,9 +42,9 @@ class NewsCard extends Component {
 							<span className="card-articleTitle"></span>
 						</h3>
 
-						<p>Article URL:the article title is blue</p>
+						<p>Article URL: {this.props.news.articleURL}</p>
 
-						<p>Date: the article title is blue</p>
+						<p>Date: {this.props.news.createDate}</p>
 
 						<button
 							type="button"

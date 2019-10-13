@@ -47,6 +47,7 @@ class EditNewsForm extends Component {
 					this.setState({
 						articleTitle: news.articleTitle,
 						articleURL: news.articleURL,
+						createDate: news.createDate,
 						loadingStatus: false,
 					});
 				});
