@@ -65,8 +65,8 @@ class TaskCard extends Component {
 						</button>
 
 						Task Complete?
-						<div class="container">
-  						<div class="round">
+						<div className="container">
+  						<div className="round">
 						<input type="checkbox" id="checkbox"
 							onClick={() =>
 								this.handleDelete(this.props.task.id)
