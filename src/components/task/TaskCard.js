@@ -44,7 +44,7 @@ class TaskCard extends Component {
 
 						<p><em>Additional Details:</em><br></br>{this.props.task.taskEntry}</p>
 
-						<p>Date: {this.props.task.taskComplete}</p>
+						<p>Date: {this.props.task.dateOfCompletion}</p>
 
 						<button
 							type="button"

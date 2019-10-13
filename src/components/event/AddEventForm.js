@@ -44,6 +44,7 @@ class AddEventForm extends Component {
         } else {
             this.setState({ loadingStatus: true });
             const addedEvent = {
+                userId: this.activeUserId,
                 eventName: this.state.eventName,
                 eventDate: this.state.eventDate,
                 eventLocation: this.state.eventLocation,
