@@ -72,7 +72,7 @@ class TaskCard extends Component {
 								this.handleDelete(this.props.task.id)
 							}
 							 />
-							<label for="checkbox"></label>
+							<label htmlFor="checkbox"></label>
 							</div>
 							</div>
 
