@@ -3,7 +3,7 @@
 import React, { Component } from "react";
 import APIManager from "../../modules/APIManager";
 import EditEventForm from "../event/EditEventForm"
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import { Modal, ModalHeader, ModalBody } from "reactstrap";
 
 
 

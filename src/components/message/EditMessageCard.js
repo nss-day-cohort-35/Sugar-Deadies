@@ -8,7 +8,7 @@ import { Button, ModalBody, ModalFooter} from "reactstrap";
 class EditMessageForm extends Component {
 	//set the initial state
 	state = {
-		messageChat: "",
+		chatMessage: "",
 		loadingStatus: true,
 		modal: false,
 		activeUser: parseInt(sessionStorage.getItem("userId"))
@@ -28,6 +28,7 @@ class EditMessageForm extends Component {
 			chatMessage: this.state.chatMessage,
 			userId: this.state.activeUser
 		};
+		console.log(this.props.messageId)
 		console.log(editedMessage)
 		APIManager.update("messages", editedMessage)
 			.then(() => { this.props.getData() }

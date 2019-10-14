@@ -4,7 +4,7 @@ import React, { Component } from "react"
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import Register from "./Register"
 import APIManager from "../../modules/APIManager";
-import { breakStatement } from "@babel/types";
+
 
 //Reactstrap Modal code from line 10 to 21
 class Login extends Component {
@@ -93,7 +93,7 @@ render() {
             </Modal>
             <div className="registrationDiv">
                 {/* <Register /> calls the component Register and its contents from Register.js to display on the login page. */}
-                <Register />
+                <Register {...this.props}/>
             </div>
         </div>
     )

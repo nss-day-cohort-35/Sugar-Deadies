@@ -11,6 +11,10 @@ export default {
       return fetch(`${remoteURL}/${resource}?userId=${userId}&_sort=timeStamp`).then(result => result.json())
     },
 
+    getAllMessages(resource){
+      return fetch (`${remoteURL}/${resource}`).then(result => result.json())
+    },
+
     delete(resource ,id) {
       return fetch(`http://localhost:5002/${resource}/${id}`, {
         method: "DELETE"
