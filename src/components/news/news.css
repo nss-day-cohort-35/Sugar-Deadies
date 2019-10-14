@@ -39,3 +39,17 @@ padding-bottom: 20px;
 .news-container-cards {
 overflow-y: scroll;
 }
+
+.delete-news {
+    color:white;
+    background-color: #EE3C96;
+    font-family: 'Raleway', sans-serif !important;
+    margin-left: 15px;
+    margin-right:  10px;
+   }
+
+   .edit-new {
+    color:white;
+    background-color: #F89938;
+    font-family: 'Raleway', sans-serif !important;
+   }

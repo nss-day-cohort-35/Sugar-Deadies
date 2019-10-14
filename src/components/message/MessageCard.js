@@ -44,7 +44,7 @@ class MessageCard extends Component {
 
 
 						<button
-							type="button"
+							type="button" className="delete-message"
 							onClick={() =>
 								this.handleDelete(this.props.message.id)
 							}
@@ -53,7 +53,7 @@ class MessageCard extends Component {
 						</button>
 
 						<button
-							type="button"
+							type="button" className="edit-message"
 							onClick={() => {
 								this.toggle()
 							}}
@@ -77,7 +77,7 @@ class MessageCard extends Component {
 
 
 						</Modal>
-
+						<hr></hr>
 					</div>
 				</div>
 			</>

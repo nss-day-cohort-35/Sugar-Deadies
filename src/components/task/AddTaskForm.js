@@ -92,7 +92,7 @@ class AddTaskForm extends Component {
 										value={this.state.taskTitle}
 									/>
 
-									<label htmlFor="task">Task Entry:</label>
+									<label htmlFor="task">Task Details:</label>
 									<input
 										type="text"
 										required

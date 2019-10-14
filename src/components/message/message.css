@@ -23,3 +23,21 @@
     margin-right: 22px;
     margin-bottom: 20px;
     }
+
+    .delete-message {
+      color:white;
+      background-color: #EE3C96;
+      font-family: 'Raleway', sans-serif !important;
+      margin-left: 15px;
+      margin-right:  10px;
+     }
+
+     .edit-message {
+      color:white;
+      background-color: #F89938;
+      font-family: 'Raleway', sans-serif !important;
+     }
+
+     .message-container-cards {
+      overflow-y: scroll;
+     }

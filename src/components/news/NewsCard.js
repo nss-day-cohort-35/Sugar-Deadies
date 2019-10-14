@@ -47,7 +47,7 @@ class NewsCard extends Component {
 						<p>Date: {this.props.news.createDate} </p>
 
 						<button
-							type="button"
+							type="button" className="delete-news"
 							onClick={() =>
 							this.handleDelete(this.props.news.id)
 							}
@@ -56,7 +56,7 @@ class NewsCard extends Component {
 						</button>
 
 						<button
-							type="button"
+							type="button" className="edit-news"
 							onClick={() => {
 								this.toggle()
 							}}
@@ -82,6 +82,10 @@ class NewsCard extends Component {
 						</Modal>
 
 					</div>
+					<div className="scroll-img-main">
+	<img className="scroll-img" src={require('../../images/scrollimage.png')} alt="logo" />
+	</div>
+	<hr></hr>
 				</div>
 			</>
 		);
