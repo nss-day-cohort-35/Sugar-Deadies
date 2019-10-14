@@ -45,8 +45,7 @@ class MessageCard extends Component {
 						<h4>
 							{this.props.name}: {this.props.message}
 							<span className="card-messageTitle"></span>
-<<<<<<< HEAD
-						</h3>
+						</h4>
 
 
 						<button
@@ -66,33 +65,6 @@ class MessageCard extends Component {
 						>
 							Edit
 						</button>
-=======
-						</h4>
-						<div>
-							{
-								parseInt(this.props.userId) === (this.activeUserId) ?
-									<div>
-										<button
-											type="button"
-											onClick={() =>
-												this.handleDelete(this.props.messageId)}
-										>
-											Delete
-										</button>
-
-										<button
-											type="button"
-											onClick={() => {
-												this.toggle()
-											}}
-										>
-											Edit
-									</button>
-									</div>
-									: null
-							}
-						</div>
->>>>>>> master
 
 						<Modal
 							isOpen={this.state.modal}
