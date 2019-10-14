@@ -3,6 +3,7 @@
 import React, { Component } from "react";
 import APIManager from "../../modules/APIManager";
 import EditMessageCard from "./EditMessageCard"
+import "../message/message.css";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
 

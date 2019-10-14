@@ -2,7 +2,8 @@
 // Purpose of the file to display individual tasks
 import React, { Component } from "react";
 import APIManager from "../../modules/APIManager";
-import EditEventForm from "../event/EditEventForm"
+import EditEventForm from "../event/EditEventForm";
+import "../event/event.css";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
 
@@ -48,6 +49,7 @@ class EventCard extends Component {
 
 						<button
 							type="button"
+							className="delete"
 							onClick={() =>
 								this.handleDelete(this.props.event.id)
 							}
@@ -57,8 +59,9 @@ class EventCard extends Component {
 
 						<button
 							type="button"
+							className="edit"
 							onClick={() => {
-								this.toggle()
+								this.toggle();
 							}}
 						>
 							Edit
@@ -69,18 +72,18 @@ class EventCard extends Component {
 							toggle={this.toggle}
 							className={this.props.className}
 						>
-							<ModalHeader
-								toggle={this.toggle}
-								close={closeBtn}>
+							<ModalHeader toggle={this.toggle} close={closeBtn}>
 								Edit Event
 							</ModalHeader>
 							<ModalBody>
-								<EditEventForm {...this.props} eventId={this.props.event.id} getData={this.props.getData} toggle={this.toggle} />
+								<EditEventForm
+									{...this.props}
+									eventId={this.props.event.id}
+									getData={this.props.getData}
+									toggle={this.toggle}
+								/>
 							</ModalBody>
-
-
 						</Modal>
-
 					</div>
 				</div>
 			</>

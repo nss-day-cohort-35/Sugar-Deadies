@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import NewsCard from "./NewsCard"
 import APIManager from "../../modules/APIManager";
 import AddNewsForm from "./AddNewsForm"
+import "../news/news.css";
 
 class NewsList extends Component {
   //define what this component needs to render

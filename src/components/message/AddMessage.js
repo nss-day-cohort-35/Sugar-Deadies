@@ -4,7 +4,7 @@
 import React, { Component } from "react";
 import APIManager from "../../modules/APIManager";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
-// import "./eventForm.css";
+import "../message/message.css";
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { fas fa-plus-circle fa-1x } from '@fortawesome/free-solid-svg-icons'
 
@@ -57,53 +57,54 @@ class AddMessageForm extends Component {
 				</button>
         );
         return (
-            <>
-                {" "}
-                <Button className="addMessage" color="success" onClick={this.toggle}>
-                    Add New Message</Button>
-                <Modal
-                    isOpen={this.state.modal}
-                    toggle={this.toggle}
-                    className={this.props.className}
-                >
-                    <ModalHeader toggle={this.toggle} close={closeBtn}>
-                        Create Your Message
+			<>
+				{" "}
+				<Button
+					className="addMessage"
+					color="success"
+					onClick={this.toggle}
+				>
+					Add New Message
+				</Button>
+				<Modal
+					isOpen={this.state.modal}
+					toggle={this.toggle}
+					className={this.props.className}
+				>
+					<ModalHeader toggle={this.toggle} close={closeBtn}>
+						Create Your Message
 					</ModalHeader>
-                    <ModalBody>
-                        <form>
-                            <fieldset>
-                                <div className="formgrid">
-                                    <label htmlFor="chatMessage">
-                                        Message:
+					<ModalBody>
+						<form>
+							<fieldset>
+								<div className="formgrid">
+									<label htmlFor="chatMessage">
+										Message:
 									</label>
-                                    <input
-                                        type="text"
-                                        required
-                                        className="form-control"
-                                        onChange={this.handleFieldChange}
-                                        id="chatMessage"
-                                        value={this.state.chatMessage}
-                                    />
-                                </div>
-                                <div className="alignRight">
-                                </div>
-                            </fieldset>
-                        </form>
-                    </ModalBody>
-                    <ModalFooter>
-                        <Button
-                            color="primary"
-                            onClick={this.addMessage}
-                        >
-                            Add
+									<input
+										type="text"
+										required
+										className="form-control"
+										onChange={this.handleFieldChange}
+										id="chatMessage"
+										value={this.state.chatMessage}
+									/>
+								</div>
+								<div className="alignRight"></div>
+							</fieldset>
+						</form>
+					</ModalBody>
+					<ModalFooter>
+						<Button className="add" onClick={this.addMessage}>
+							Add
 						</Button>{" "}
-                        <Button color="secondary" onClick={this.toggle}>
-                            Cancel
+						<Button className="cancel" onClick={this.toggle}>
+							Cancel
 						</Button>
-                    </ModalFooter>
-                </Modal>
-            </>
-        );
+					</ModalFooter>
+				</Modal>
+			</>
+		);
     }
 }
 

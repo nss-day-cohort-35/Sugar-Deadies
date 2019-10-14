@@ -3,7 +3,7 @@
 import React, { Component } from "react";
 import APIManager from "../../modules/APIManager";
 import { Button, ModalBody, ModalFooter} from "reactstrap";
-// import "./taskForm.css";
+import "../message/message.css";
 
 class EditMessageForm extends Component {
 	//set the initial state
@@ -63,11 +63,9 @@ class EditMessageForm extends Component {
 								/>
 								<label htmlFor="chatMessage">
 									Message Chat
-									</label>
+								</label>
 							</div>
-							<div className="alignRight">
-
-							</div>
+							<div className="alignRight"></div>
 						</fieldset>
 					</form>
 				</ModalBody>
@@ -75,15 +73,17 @@ class EditMessageForm extends Component {
 					<Button
 						type="button"
 						disabled={this.state.loadingStatus}
-						onClick={(evt) => {
-							this.updateExistingMessage(evt)
-							this.props.toggle()
+						onClick={evt => {
+							this.updateExistingMessage(evt);
+							this.props.toggle();
 						}}
 						className="btn btn-primary"
 					>
 						Submit
-									</Button>
-					<Button color="secondary" onClick={this.props.toggle}>Cancel</Button>
+					</Button>
+					<Button className="cancel" onClick={this.props.toggle}>
+						Cancel
+					</Button>
 				</ModalFooter>
 			</>
 		);

@@ -4,6 +4,8 @@
 import React, { Component } from "react";
 // import MessageCard from "../event/MessageCard"
 import APIManager from "../../modules/APIManager";
+import "../friends/friend.css";
+
 // import AddFriendCard from "./AddFriendCard"
 
 class FriendList extends Component {

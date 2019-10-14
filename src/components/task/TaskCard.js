@@ -3,6 +3,7 @@
 import React, { Component } from "react";
 import APIManager from "../../modules/APIManager";
 import EditTaskForm from "../task/EditTaskForm"
+import "../task/task.css";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
 
@@ -47,6 +48,7 @@ class TaskCard extends Component {
 						<p>Date: {this.props.task.dateOfCompletion}</p>
 
 						<button
+							className="delete"
 							type="button"
 							onClick={() =>
 								this.handleDelete(this.props.task.id)
@@ -56,6 +58,7 @@ class TaskCard extends Component {
 						</button>
 
 						<button
+						className="edit"
 							type="button"
 							onClick={() => {
 								this.toggle()

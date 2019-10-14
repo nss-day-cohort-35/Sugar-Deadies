@@ -118,10 +118,10 @@ render() {
 						</form>
 					</ModalBody>
 					<ModalFooter>
-						<Button color="primary" onClick={this.handleLogin}>
+						<Button className="add" onClick={this.handleLogin}>
 							Sign In!
 						</Button>{" "}
-						<Button color="secondary" onClick={this.toggle}>
+						<Button className="close" onClick={this.toggle}>
 							Cancel
 						</Button>
 					</ModalFooter>

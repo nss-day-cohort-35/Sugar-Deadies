@@ -4,7 +4,7 @@
 import React, { Component } from "react";
 import APIManager from "../../modules/APIManager";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
-// import "./taskForm.css";
+import "../news/news.css";
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { fas fa-plus-circle fa-1x } from '@fortawesome/free-solid-svg-icons'
 
@@ -66,7 +66,7 @@ class AddNewsForm extends Component {
 		return (
 			<>
 				{" "}
-				<Button className="addNews" color="success" onClick={this.toggle}>
+				<Button className="addNews" onClick={this.toggle}>
                 Add New Article</Button>
 				<Modal
 					isOpen={this.state.modal}
@@ -119,12 +119,13 @@ class AddNewsForm extends Component {
 					</ModalBody>
 					<ModalFooter>
 						<Button
+						className="add"
 							color="primary"
 							onClick={this.addNews}
 						>
 							Add
 						</Button>{" "}
-						<Button color="secondary" onClick={this.toggle}>
+						<Button className="cancel" onClick={this.toggle}>
 							Cancel
 						</Button>
 					</ModalFooter>

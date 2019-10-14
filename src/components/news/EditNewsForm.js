@@ -4,7 +4,7 @@ import React, { Component } from "react";
 import APIManager from "../../modules/APIManager";
 import { Button, ModalBody, ModalFooter} from "reactstrap";
 import AddNewsForm from "./AddNewsForm"
-// import "./taskForm.css";
+import "../news/news.css";
 
 class EditNewsForm extends Component {
 	//set the initial state
@@ -83,7 +83,7 @@ class EditNewsForm extends Component {
 								/>
 								<label htmlFor="articleTitle">
 									Name of Article
-									</label>
+								</label>
 
 								<input
 									type="url"
@@ -93,7 +93,9 @@ class EditNewsForm extends Component {
 									id="articleURL"
 									value={this.state.articleURL}
 								/>
-								<label htmlFor="articleURL">URL of Article</label>
+								<label htmlFor="articleURL">
+									URL of Article
+								</label>
 
 								<input
 									type="date"
@@ -105,9 +107,7 @@ class EditNewsForm extends Component {
 								/>
 								<label htmlFor="createDate">Today's Date</label>
 							</div>
-							<div className="alignRight">
-
-							</div>
+							<div className="alignRight"></div>
 						</fieldset>
 					</form>
 				</ModalBody>
@@ -115,15 +115,17 @@ class EditNewsForm extends Component {
 					<Button
 						type="button"
 						disabled={this.state.loadingStatus}
-						onClick={(evt) => {
-							this.updateExistingNews(evt)
-							this.props.toggle()
+						onClick={evt => {
+							this.updateExistingNews(evt);
+							this.props.toggle();
 						}}
 						className="btn btn-primary"
 					>
 						Submit
-									</Button>
-					<Button color="secondary" onClick={this.props.toggle}>Cancel</Button>
+					</Button>
+					<Button className="cancel" onClick={this.props.toggle}>
+						Cancel
+					</Button>
 				</ModalFooter>
 				{/* </Modal> */}
 			</>
