@@ -25,6 +25,7 @@ class EditMessageForm extends Component {
 		this.setState({ loadingStatus: true });
 		const editedMessage = {
 			id: parseInt(this.props.messageId),
+			userName: this.props.name,
 			chatMessage: this.state.chatMessage,
 			userId: this.state.activeUser
 		};

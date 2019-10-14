@@ -81,7 +81,11 @@ class MessageCard extends Component {
 								Edit Message
 							</ModalHeader>
 							<ModalBody>
-								<EditMessageCard {...this.props} messageId={this.props.messageId} getData={this.props.getData} toggle={this.toggle} />
+								<EditMessageCard {...this.props}
+								messageId={this.props.messageId}
+								name={this.props.name}
+								getData={this.props.getData}
+								toggle={this.toggle} />
 							</ModalBody>
 
 
