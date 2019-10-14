@@ -4,7 +4,7 @@ import React, { Component } from "react";
 import APIManager from "../../modules/APIManager";
 import EditTaskForm from "../task/EditTaskForm"
 import "../task/task.css";
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import { Modal, ModalHeader, ModalBody, } from "reactstrap";
 
 
 

@@ -58,7 +58,6 @@ class EventList extends Component {
           </div>
           <AddEventForm {...this.props}
           getData={this.getData} />
-2
           <div className="container-cards">
             {this.state.events.map(event => (
               <EventCard

@@ -3,7 +3,6 @@
 import React, { Component } from "react";
 import APIManager from "../../modules/APIManager";
 import { Button, ModalBody, ModalFooter} from "reactstrap";
-import AddNewsForm from "./AddNewsForm"
 import "../news/news.css";
 
 class EditNewsForm extends Component {

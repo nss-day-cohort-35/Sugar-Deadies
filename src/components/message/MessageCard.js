@@ -4,15 +4,19 @@ import React, { Component } from "react";
 import APIManager from "../../modules/APIManager";
 import EditMessageCard from "./EditMessageCard"
 import "../message/message.css";
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import {  Modal, ModalHeader, ModalBody } from "reactstrap";
 
 
 
 class MessageCard extends Component {
 
 	state = {
+		name: "",
+		chatMessage: "",
 		modal: false
 	};
+
+	activeUserId = parseInt(sessionStorage.getItem("userId"))
 
 	toggle = () => {
 		this.setState(prevState => ({
@@ -20,7 +24,6 @@ class MessageCard extends Component {
 		}));
 	}
 
-	activeUserId = parseInt(sessionStorage.getItem("userId"))
 
 	handleDelete = id => {
 		APIManager.delete("messages", id)
@@ -34,33 +37,39 @@ class MessageCard extends Component {
 				&times;
 			</button>
 		);
+
 		return (
 			<>
 				<div className="card">
 					<div className="card-content">
-						<h3>
-							Enter your message:{this.props.message.messageChat}
+						<h4>
+							{this.props.name}: {this.props.message}
 							<span className="card-messageTitle"></span>
-						</h3>
+						</h4>
+						<div>
+							{
+								parseInt(this.props.userId) === (this.activeUserId) ?
+									<div>
+										<button
+											type="button"
+											onClick={() =>
+												this.handleDelete(this.props.messageId)}
+										>
+											Delete
+										</button>
 
-
-						<button
-							type="button"
-							onClick={() =>
-								this.handleDelete(this.props.message.id)
+										<button
+											type="button"
+											onClick={() => {
+												this.toggle()
+											}}
+										>
+											Edit
+									</button>
+									</div>
+									: null
 							}
-						>
-							Delete
-						</button>
-
-						<button
-							type="button"
-							onClick={() => {
-								this.toggle()
-							}}
-						>
-							Edit
-						</button>
+						</div>
 
 						<Modal
 							isOpen={this.state.modal}
@@ -73,7 +82,11 @@ class MessageCard extends Component {
 								Edit Message
 							</ModalHeader>
 							<ModalBody>
-								<EditMessageCard {...this.props} messageId={this.props.message.id} getData={this.props.getData} toggle={this.toggle} />
+								<EditMessageCard {...this.props}
+									messageId={this.props.messageId}
+									name={this.props.name}
+									getData={this.props.getData}
+									toggle={this.toggle} />
 							</ModalBody>
 
 
