@@ -5,10 +5,8 @@ import { Route } from "react-router-dom";
 import React, { Component } from "react";
 import Login from "./auth/Login"
 import Register from "./auth/Register"
-// import TaskList from "./task/TaskList"
 import Dashboard from "./dashboard/Dashboard";
-// import EditTaskForm from "./EditTaskForm";
-// import AddTaskForm from "./AddTaskForm";
+
 
 
 export default class ApplicationViews extends Component {
@@ -19,7 +17,7 @@ export default class ApplicationViews extends Component {
 
         <Route
           exact path="/" render={props => {
-            return <Dashboard {...props} />
+            return <Dashboard user={this.props.user} {...props} />
             // Returns the component which will show the dashboard
           }}
         />

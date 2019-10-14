@@ -7,6 +7,7 @@ import MessageList from "../message/MessageList"
 
 
 
+
 class Dashboard extends Component {
     render() {
         return (
@@ -30,7 +31,7 @@ class Dashboard extends Component {
             </section>
 
             <section className="rightSection">
-            <MessageList {...this.props} />
+            <MessageList user={this.props.user} {...this.props} />
             </section>
         </div>
 

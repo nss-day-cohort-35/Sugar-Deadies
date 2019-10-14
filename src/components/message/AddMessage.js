@@ -20,6 +20,7 @@ class AddMessageForm extends Component {
     };
 
     activeUserId = parseInt(sessionStorage.getItem("userId"))
+    activeUserName= sessionStorage.getItem("name")
 
     toggle = () => {
         this.setState(prevState => ({
@@ -41,7 +42,9 @@ class AddMessageForm extends Component {
         } else {
             this.setState({ loadingStatus: true });
             const addedMessage = {
+                userName: this.activeUserName,
                 chatMessage: this.state.chatMessage,
+                timeStamp: Date.now(),
                 userId: this.activeUserId
             };
 
@@ -57,6 +60,7 @@ class AddMessageForm extends Component {
 				</button>
         );
         return (
+
             <>
                 {" "}
                 <Button className="addMessage" color="success" onClick={this.toggle}>
