@@ -44,7 +44,7 @@ class TaskCard extends Component {
 
 						<p><em>Additional Details:</em><br></br>{this.props.task.taskEntry}</p>
 
-						<p>Date: {this.props.task.dateOfCompletion}</p>
+						<p>Due Date: {this.props.task.dateOfCompletion}</p>
 
 						<button
 							type="button" className="delete-task"
@@ -79,19 +79,23 @@ class TaskCard extends Component {
 
 
 						</Modal>
-						<div className="task-complete"> Task Complete?
+						<div className="task-complete"> 
+						<div className="taskTitle">Task Complete?</div>
 						<div className="container">
-						<i class="far fa-check-circle fa-1.5x"
+						<i class="far fa-check-circle fa-2x"
 							onClick={() =>
 								this.handleDelete(this.props.task.id)
 							}></i>
 					</div>
 							</div>
-<hr></hr>
-
+<div className="scroll-img-main">
+	<img className="scroll-img" src={require('../../images/scrollimage.png')} alt="logo" />
+	</div>
+	<hr></hr>
 					</div>
 				</div>
 			</>
+			
 		);
 	}
 }
