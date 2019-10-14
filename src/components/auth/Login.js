@@ -3,6 +3,7 @@
 import React, { Component } from "react"
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import Register from "./Register"
+import "./auth.css";
 import APIManager from "../../modules/APIManager";
 
 
@@ -64,48 +65,77 @@ class Login extends Component {
 render() {
     const closeBtn = <button className="close" onClick={this.toggle}>&times;</button>;
     return (
+		<div>
+			<div className="header">
+				<img
+					className="welcomelogo"
+					src={require("../../images/loginbanner.png")}
+					alt="logo"
+				/>
+			</div>
+			<div className="registrationDiv">
+				<Button
+					className="loginButton"
+					onClick={this.toggle}
+				>
+					Login
+				</Button>
 
-        <div>
-            <div className="header">
-            <img className="welcomelogo" src={require('../../images/loginbanner.png')} alt="logo" />
-            </div>
-            <Button color="success" onClick={this.toggle}>Login</Button>
-            <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-                <ModalHeader toggle={this.toggle} close={closeBtn}>Please Sign In</ModalHeader>
-                <ModalBody>
-                    <form onSubmit={this.handleLogin}>
-                        <fieldset>
-                            <div className="formgrid">
-                            <label htmlFor="inputEmail">Name</label><br></br>
-                                <input onChange={this.handleFieldChange} type="text"
-                                    id="name"
-                                    placeholder="Name"
-                                    required="" autoFocus="" /><br></br>
-                            <label htmlFor="inputEmail">Email address</label><br></br>
-                                <input onChange={this.handleFieldChange} type="email"
-                                    id="email"
-                                    placeholder="Email address"
-                                    required="" autoFocus="" /><br></br>
-                                    <label htmlFor="inputPassword">Password</label><br></br>
-                                <input onChange={this.handleFieldChange} type="password"
-                                    id="password"
-                                    placeholder="Password"
-                                    required="" />
-                            </div>
-                        </fieldset>
-                    </form>
-                </ModalBody>
-                <ModalFooter>
-                    <Button color="primary" onClick={this.handleLogin}>Sign In!</Button>{' '}
-                    <Button color="secondary" onClick={this.toggle}>Cancel</Button>
-                </ModalFooter>
-            </Modal>
-            <div className="registrationDiv">
-                {/* <Register /> calls the component Register and its contents from Register.js to display on the login page. */}
-                <Register {...this.props}/>
-            </div>
-        </div>
-    )
+				<Modal
+					isOpen={this.state.modal}
+					toggle={this.toggle}
+					className={this.props.className}
+				>
+					<ModalHeader toggle={this.toggle} close={closeBtn}>
+						Please Sign In
+					</ModalHeader>
+					<ModalBody>
+						<form onSubmit={this.handleLogin}>
+							<fieldset>
+								<div className="formgrid">
+									<label htmlFor="inputEmail">
+										Email address
+									</label>
+									<br></br>
+									<input
+										onChange={this.handleFieldChange}
+										type="email"
+										id="email"
+										placeholder="Email address"
+										required=""
+										autoFocus=""
+									/>
+									<br></br>
+									<label htmlFor="inputPassword">
+										Password
+									</label>
+									<br></br>
+									<input
+										onChange={this.handleFieldChange}
+										type="password"
+										id="password"
+										placeholder="Password"
+										required=""
+									/>
+								</div>
+							</fieldset>
+						</form>
+					</ModalBody>
+					<ModalFooter>
+						<Button color="primary" onClick={this.handleLogin}>
+							Sign In!
+						</Button>{" "}
+						<Button color="secondary" onClick={this.toggle}>
+							Cancel
+						</Button>
+					</ModalFooter>
+				</Modal>
+
+				{/* <Register /> calls the component Register and its contents from Register.js to display on the login page. */}
+				<Register />
+			</div>
+		</div>
+	);
 }
 
 }
