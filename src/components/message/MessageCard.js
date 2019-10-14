@@ -10,7 +10,7 @@ import { Modal, ModalHeader, ModalBody } from "reactstrap";
 class MessageCard extends Component {
 
 	state = {
-		name:"",
+		name: "",
 		chatMessage: "",
 		modal: false
 	};
@@ -82,10 +82,10 @@ class MessageCard extends Component {
 							</ModalHeader>
 							<ModalBody>
 								<EditMessageCard {...this.props}
-								messageId={this.props.messageId}
-								name={this.props.name}
-								getData={this.props.getData}
-								toggle={this.toggle} />
+									messageId={this.props.messageId}
+									name={this.props.name}
+									getData={this.props.getData}
+									toggle={this.toggle} />
 							</ModalBody>
 
 
