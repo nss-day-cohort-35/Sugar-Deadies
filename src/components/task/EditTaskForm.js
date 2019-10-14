@@ -3,7 +3,7 @@
 import React, { Component } from "react";
 import APIManager from "../../modules/APIManager";
 import { Button, ModalBody, ModalFooter} from "reactstrap";
-// import "./taskForm.css";
+import "../task/task.css";
 
 class EditTaskForm extends Component {
 	//set the initial state
@@ -123,7 +123,7 @@ class EditTaskForm extends Component {
 					>
 						Submit
 									</Button>
-					<Button color="secondary" onClick={this.props.toggle}>Cancel</Button>
+					<Button className="cancel" onClick={this.props.toggle}>Cancel</Button>
 				</ModalFooter>
 				{/* </Modal> */}
 			</>

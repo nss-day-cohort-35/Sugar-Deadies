@@ -3,7 +3,8 @@
 import React, { Component } from "react";
 import APIManager from "../../modules/APIManager";
 import EditNewsForm from "../news/EditNewsForm"
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import "../news/news.css";
+import {  Modal, ModalHeader, ModalBody } from "reactstrap";
 
 
 
@@ -47,18 +48,28 @@ class NewsCard extends Component {
 						<p>Date: {this.props.news.createDate} </p>
 
 						<button
+<<<<<<< HEAD
 							type="button" className="delete-news"
+=======
+							type="button"
+							className="delete"
+>>>>>>> master
 							onClick={() =>
-							this.handleDelete(this.props.news.id)
+								this.handleDelete(this.props.news.id)
 							}
 						>
 							Delete
 						</button>
 
 						<button
+<<<<<<< HEAD
 							type="button" className="edit-news"
+=======
+							type="button"
+							className="edit"
+>>>>>>> master
 							onClick={() => {
-								this.toggle()
+								this.toggle();
 							}}
 						>
 							Edit
@@ -69,18 +80,18 @@ class NewsCard extends Component {
 							toggle={this.toggle}
 							className={this.props.className}
 						>
-							<ModalHeader
-								toggle={this.toggle}
-								close={closeBtn}>
+							<ModalHeader toggle={this.toggle} close={closeBtn}>
 								Edit News
 							</ModalHeader>
 							<ModalBody>
-								<EditNewsForm {...this.props} newsId={this.props.news.id} getData={this.props.getData} toggle={this.toggle} />
+								<EditNewsForm
+									{...this.props}
+									newsId={this.props.news.id}
+									getData={this.props.getData}
+									toggle={this.toggle}
+								/>
 							</ModalBody>
-
-
 						</Modal>
-
 					</div>
 					<div className="scroll-img-main">
 	<img className="scroll-img" src={require('../../images/scrollimage.png')} alt="logo" />

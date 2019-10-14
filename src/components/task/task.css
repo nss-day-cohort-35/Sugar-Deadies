@@ -83,3 +83,10 @@ justify-content: space-between;
   margin-top: 20px;
   opacity: 90%;
  }
+.close, .add, .cancel {
+    display: flex;
+    justify-content: space-evenly;
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px !important;
+    background-color: #F89938 !important;
+}

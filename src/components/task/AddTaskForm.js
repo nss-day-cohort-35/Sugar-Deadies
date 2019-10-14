@@ -4,7 +4,7 @@
 import React, { Component } from "react";
 import APIManager from "../../modules/APIManager";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
-// import "./taskForm.css";
+import "../task/task.css";
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { fas fa-plus-circle fa-1x } from '@fortawesome/free-solid-svg-icons'
 
@@ -119,12 +119,12 @@ class AddTaskForm extends Component {
 					</ModalBody>
 					<ModalFooter>
 						<Button
-							color="primary class=add-task-btn"
+							className="add"
 							onClick={this.addTask}
 						>
 							Add
 						</Button>{" "}
-						<Button color="secondary" onClick={this.toggle}>
+						<Button className="cancel" onClick={this.toggle}>
 							Cancel
 						</Button>
 					</ModalFooter>

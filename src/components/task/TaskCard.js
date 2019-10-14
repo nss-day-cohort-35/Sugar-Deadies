@@ -3,7 +3,8 @@
 import React, { Component } from "react";
 import APIManager from "../../modules/APIManager";
 import EditTaskForm from "../task/EditTaskForm"
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import "../task/task.css";
+import { Modal, ModalHeader, ModalBody, } from "reactstrap";
 
 
 
@@ -63,6 +64,19 @@ class TaskCard extends Component {
 						>
 							Edit
 						</button><br></br>
+
+						Task Complete?
+						<div className="container">
+  						<div className="round">
+						<input type="checkbox" id="checkbox"
+							onClick={() =>
+								this.handleDelete(this.props.task.id)
+							}
+							 />
+							<label htmlFor="checkbox"></label>
+							</div>
+							</div>
+
 						<Modal
 							isOpen={this.state.modal}
 							toggle={this.toggle}
@@ -95,7 +109,6 @@ class TaskCard extends Component {
 					</div>
 				</div>
 			</>
-			
 		);
 	}
 }

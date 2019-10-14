@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import TaskCard from "../task/TaskCard";
 import APIManager from "../../modules/APIManager";
 import AddTaskForm from "./AddTaskForm";
+import "../task/task.css";
 
 class TaskList extends Component {
     //define what this component needs to render

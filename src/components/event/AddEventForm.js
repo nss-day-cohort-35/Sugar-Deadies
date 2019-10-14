@@ -4,7 +4,7 @@
 import React, { Component } from "react";
 import APIManager from "../../modules/APIManager";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
-// import "./eventForm.css";
+import "../event/event.css";
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { fas fa-plus-circle fa-1x } from '@fortawesome/free-solid-svg-icons'
 
@@ -65,7 +65,7 @@ class AddEventForm extends Component {
         return (
             <>
                 {" "}
-                <Button className="addEvent" color="success" onClick={this.toggle}>
+                <Button className="addEvent" onClick={this.toggle}>
                     Add Event</Button>
                 <Modal
                     isOpen={this.state.modal}
@@ -118,12 +118,12 @@ class AddEventForm extends Component {
                     </ModalBody>
                     <ModalFooter>
                         <Button
-                            color="primary"
+className="add"
                             onClick={this.addEvent}
                         >
                             Add
 						</Button>{" "}
-                        <Button color="secondary" onClick={this.toggle}>
+                        <Button className="cancel" onClick={this.toggle}>
                             Cancel
 						</Button>
                     </ModalFooter>

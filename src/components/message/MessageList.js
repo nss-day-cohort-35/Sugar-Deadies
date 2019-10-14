@@ -6,12 +6,16 @@ import React, { Component } from "react";
 import APIManager from "../../modules/APIManager";
 import AddMessageForm from "./AddMessage"
 import MessageCard from "./MessageCard"
+import "../message/message.css";
+
 
 class MessageList extends Component {
   //define what this component needs to render
    state = {
    messages: [],
-   userID: "",
+   name: "",
+   chatMessage: "",
+   userId: "",
    modal: false
   };
 
@@ -25,7 +29,7 @@ class MessageList extends Component {
 
   deleteMessage = id => {
     APIManager.delete("messages", id).then(() => {
-      APIManager.getAll("messages", this.activeUserId).then(newMessages => {
+      APIManager.getAll("messages", null).then(newMessages => {
         this.setState({
           messages: newMessages
         });
@@ -33,11 +37,15 @@ class MessageList extends Component {
     });
   };
 
-  getData = () => APIManager.getAll("messages", this.activeUserId);
+  getData = () => APIManager.getAllMessages("messages").then(messages => {
+    this.setState({
+      messages: messages
+    })
+  });
 
   componentDidMount() {
     //getAll from APIManager and hang on to that data; put it in state
-    APIManager.getAll("messages", this.activeUserId).then(messages => {
+    APIManager.getAllMessages("messages").then(messages => {
       this.setState({
         messages: messages
       });
@@ -60,13 +68,16 @@ class MessageList extends Component {
           {this.state.messages.map(message => (
             <MessageCard
               key={message.id}
-              message={message}
+              messageId={message.id}
+              message={message.chatMessage}
+              userId={message.userId}
+              name={message.userName}
               deleteMessage={this.deleteMessage}
               {...this.props}
               getData={this.getData}
             />
           ))}
-        </div> 
+        </div>
                 </div>
       </>
     );
