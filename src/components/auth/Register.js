@@ -4,6 +4,7 @@
 import React, { Component } from "react"
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import APIManager from '../../modules/APIManager'
+import "./auth.css";
 
 
 //Reactstrap Modal code from line 10 to 21
@@ -67,43 +68,71 @@ export default class Register extends Component {
   render() {
     const closeBtn = <button className="close" onClick={this.toggle}>&times;</button>;
     return (
+		<div>
+			<Button
+				className="registrationButton"
+				onClick={this.toggle}
+			>
+				Register
+			</Button>
+			<Modal
+				isOpen={this.state.modal}
+				toggle={this.toggle}
+				className={this.props.className}
+			>
+				<ModalHeader toggle={this.toggle} close={closeBtn}>
+					Create Your Account
+				</ModalHeader>
+				<ModalBody>
+					<form>
+						<fieldset>
+							<div className="formgrid">
+								<input
+									onChange={this.handleFieldChange}
+									type="text"
+									id="name"
+									placeholder="Full Name"
+									required=""
+									autoFocus=""
+								/>
+								<label htmlFor="inputName">Name</label>
 
-      <div>
-        <Button color="success" onClick={this.toggle}>Register</Button>
-        <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-          <ModalHeader toggle={this.toggle} close={closeBtn}>Create Your Account</ModalHeader>
-          <ModalBody>
-            <form>
-              <fieldset>
-                <div className="formgrid">
-                  <input onChange={this.handleFieldChange} type="text"
-                    id="name"
-                    placeholder="Full Name"
-                    required="" autoFocus="" />
-                  <label htmlFor="inputName">Name</label>
+								<label htmlFor="inputEmail">
+									Email address
+								</label>
+								<br></br>
+								<input
+									onChange={this.handleFieldChange}
+									type="email"
+									id="email"
+									placeholder="Email address"
+									required=""
+									autoFocus=""
+								/>
 
-                  <label htmlFor="inputEmail">Email address</label><br></br>
-                  <input onChange={this.handleFieldChange} type="email"
-                    id="email"
-                    placeholder="Email address"
-                    required="" autoFocus="" />
-
-                  <input onChange={this.handleFieldChange} type="password"
-                    id="password"
-                    placeholder="Password"
-                    required="" />
-                  <label htmlFor="inputPassword">Password</label>
-                </div>
-              </fieldset>
-            </form>
-          </ModalBody>
-          <ModalFooter>
-            <Button color="primary" onClick={this.handleRegister}>Create Account!</Button>
-            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
-          </ModalFooter>
-        </Modal>
-      </div>
-    )
+								<input
+									onChange={this.handleFieldChange}
+									type="password"
+									id="password"
+									placeholder="Password"
+									required=""
+								/>
+								<label htmlFor="inputPassword">Password</label>
+							</div>
+						</fieldset>
+					</form>
+				</ModalBody>
+				<ModalFooter>
+					<Button color="primary" onClick={this.handleRegister}>
+						Create Account!
+					</Button>
+					<Button color="secondary" onClick={this.toggle}>
+						Cancel
+					</Button>
+				</ModalFooter>
+			</Modal>
+		</div>
+	);
   }
 }
 
