@@ -114,24 +114,24 @@ class Login extends Component {
                                         <label htmlFor="inputPassword">
                                             Password
 									</label>
-                                        <br></br>
-                                        <input
-                                            onChange={this.handleFieldChange}
-                                            type="password"
-                                            id="password"
-                                            placeholder="Password"
-                                            required=""
-                                        />
-                                    </div>
-                                </fieldset>
-                            </form>
-                        </ModalBody>
-                        <ModalFooter>
-                            <Button color="primary" onClick={this.handleLogin}>
-                                Sign In!
+									<br></br>
+									<input
+										onChange={this.handleFieldChange}
+										type="password"
+										id="password"
+										placeholder="Password"
+										required=""
+									/>
+								</div>
+							</fieldset>
+						</form>
+					</ModalBody>
+					<ModalFooter>
+						<Button className="add" onClick={this.handleLogin}>
+							Sign In!
 						</Button>{" "}
-                            <Button color="secondary" onClick={this.toggle}>
-                                Cancel
+						<Button className="close" onClick={this.toggle}>
+							Cancel
 						</Button>
                         </ModalFooter>
                     </Modal>

@@ -3,7 +3,8 @@
 import React, { Component } from "react";
 import APIManager from "../../modules/APIManager";
 import EditNewsForm from "../news/EditNewsForm"
-import { Modal, ModalHeader, ModalBody } from "reactstrap";
+import "../news/news.css";
+import {  Modal, ModalHeader, ModalBody } from "reactstrap";
 
 
 
@@ -48,8 +49,9 @@ class NewsCard extends Component {
 
 						<button
 							type="button"
+							className="delete"
 							onClick={() =>
-							this.handleDelete(this.props.news.id)
+								this.handleDelete(this.props.news.id)
 							}
 						>
 							Delete
@@ -57,8 +59,9 @@ class NewsCard extends Component {
 
 						<button
 							type="button"
+							className="edit"
 							onClick={() => {
-								this.toggle()
+								this.toggle();
 							}}
 						>
 							Edit
@@ -69,18 +72,18 @@ class NewsCard extends Component {
 							toggle={this.toggle}
 							className={this.props.className}
 						>
-							<ModalHeader
-								toggle={this.toggle}
-								close={closeBtn}>
+							<ModalHeader toggle={this.toggle} close={closeBtn}>
 								Edit News
 							</ModalHeader>
 							<ModalBody>
-								<EditNewsForm {...this.props} newsId={this.props.news.id} getData={this.props.getData} toggle={this.toggle} />
+								<EditNewsForm
+									{...this.props}
+									newsId={this.props.news.id}
+									getData={this.props.getData}
+									toggle={this.toggle}
+								/>
 							</ModalBody>
-
-
 						</Modal>
-
 					</div>
 				</div>
 			</>

@@ -3,7 +3,7 @@
 import React, { Component } from "react";
 import APIManager from "../../modules/APIManager";
 import { Button, ModalBody, ModalFooter} from "reactstrap";
-// import "./taskForm.css";
+import "../event/event.css";
 
 class EditEventForm extends Component {
 	//set the initial state
@@ -67,9 +67,7 @@ class EditEventForm extends Component {
 									id="eventName"
 									value={this.state.eventName}
 								/>
-								<label htmlFor="eventName">
-									Event Name
-									</label>
+								<label htmlFor="eventName">Event Name</label>
 
 								<input
 									type="date"
@@ -91,9 +89,7 @@ class EditEventForm extends Component {
 								/>
 								<label htmlFor="eventlocation">Address</label>
 							</div>
-							<div className="alignRight">
-
-							</div>
+							<div className="alignRight"></div>
 						</fieldset>
 					</form>
 				</ModalBody>
@@ -101,15 +97,17 @@ class EditEventForm extends Component {
 					<Button
 						type="button"
 						disabled={this.state.loadingStatus}
-						onClick={(evt) => {
-							this.updateExistingEvent(evt)
-							this.props.toggle()
+						onClick={evt => {
+							this.updateExistingEvent(evt);
+							this.props.toggle();
 						}}
 						className="btn btn-primary"
 					>
 						Submit
-									</Button>
-					<Button color="secondary" onClick={this.props.toggle}>Cancel</Button>
+					</Button>
+					<Button className="cancel" onClick={this.props.toggle}>
+						Cancel
+					</Button>
 				</ModalFooter>
 			</>
 		);

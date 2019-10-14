@@ -6,6 +6,7 @@ import React, { Component } from "react";
 import APIManager from "../../modules/APIManager";
 import AddMessageForm from "./AddMessage"
 import MessageCard from "./MessageCard"
+import "../message/message.css";
 
 
 class MessageList extends Component {

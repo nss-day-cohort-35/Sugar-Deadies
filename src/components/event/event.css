@@ -23,3 +23,11 @@ padding-bottom: 20px;
     margin-right: 22px;
     margin-bottom: 20px;
     }
+
+.close, .add, .cancel {
+    display: flex;
+    justify-content: space-evenly;
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px !important;
+    background-color: #F89938 !important;
+}

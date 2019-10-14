@@ -5,6 +5,7 @@ import React, { Component } from "react";
 import EventCard from "../event/EventCard"
 import APIManager from "../../modules/APIManager";
 import AddEventForm from "./AddEventForm"
+import "../event/event.css";
 
 class EventList extends Component {
   //define what this component needs to render
