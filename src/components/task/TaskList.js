@@ -57,7 +57,7 @@ class TaskList extends Component {
                 <AddTaskForm
                 {...this.props}
                 getData={this.getData} />
-                <div className="container-cards">
+                <div className="task-container-cards">
                     {this.state.tasks.map(task => (
                         <TaskCard
                             key={task.id}

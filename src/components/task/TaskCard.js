@@ -47,7 +47,7 @@ class TaskCard extends Component {
 						<p>Date: {this.props.task.dateOfCompletion}</p>
 
 						<button
-							type="button"
+							type="button" className="delete-task"
 							onClick={() =>
 								this.handleDelete(this.props.task.id)
 							}
@@ -56,26 +56,13 @@ class TaskCard extends Component {
 						</button>
 
 						<button
-							type="button"
+							type="button" className="edit-task"
 							onClick={() => {
 								this.toggle()
 							}}
 						>
 							Edit
-						</button>
-
-						Task Complete?
-						<div className="container">
-  						<div className="round">
-						<input type="checkbox" id="checkbox"
-							onClick={() =>
-								this.handleDelete(this.props.task.id)
-							}
-							 />
-							<label for="checkbox"></label>
-							</div>
-							</div>
-
+						</button><br></br>
 						<Modal
 							isOpen={this.state.modal}
 							toggle={this.toggle}
@@ -92,6 +79,15 @@ class TaskCard extends Component {
 
 
 						</Modal>
+						<div className="task-complete"> Task Complete?
+						<div className="container">
+						<i class="far fa-check-circle fa-1.5x"
+							onClick={() =>
+								this.handleDelete(this.props.task.id)
+							}></i>
+					</div>
+							</div>
+<hr></hr>
 
 					</div>
 				</div>
