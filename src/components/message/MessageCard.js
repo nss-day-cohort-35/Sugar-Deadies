@@ -10,116 +10,93 @@ import {  Modal, ModalHeader, ModalBody } from "reactstrap";
 
 class MessageCard extends Component {
 
-	state = {
-		name: "",
-		chatMessage: "",
-		modal: false
-	};
+    state = {
+        name: "",
+        chatMessage: "",
+        modal: false
+    };
 
-	activeUserId = parseInt(sessionStorage.getItem("userId"))
+    activeUserId = parseInt(sessionStorage.getItem("userId"))
 
-	toggle = () => {
-		this.setState(prevState => ({
-			modal: !prevState.modal
-		}));
-	}
-
-
-	handleDelete = id => {
-		APIManager.delete("messages", id)
-			.then(() => { this.props.getData() }
-			);
-	}
-
-	render() {
-		const closeBtn = (
-			<button className="close" onClick={this.toggle}>
-				&times;
-			</button>
-		);
-
-		return (
-			<>
-				<div className="card">
-					<div className="card-content">
-						<h4>
-							{this.props.name}: {this.props.message}
-							<span className="card-messageTitle"></span>
-<<<<<<< HEAD
-						</h3>
+    toggle = () => {
+        this.setState(prevState => ({
+            modal: !prevState.modal
+        }));
+    }
 
 
-						<button
-							type="button" className="delete-message"
-							onClick={() =>
-								this.handleDelete(this.props.message.id)
-							}
-						>
-							Delete
-						</button>
+    handleDelete = id => {
+        APIManager.delete("messages", id)
+            .then(() => { this.props.getData() }
+            );
+    }
 
-						<button
-							type="button" className="edit-message"
-							onClick={() => {
-								this.toggle()
-							}}
-						>
-							Edit
-						</button>
-=======
-						</h4>
-						<div>
-							{
-								parseInt(this.props.userId) === (this.activeUserId) ?
-									<div>
-										<button
-											type="button"
-											onClick={() =>
-												this.handleDelete(this.props.messageId)}
-										>
-											Delete
-										</button>
+    render() {
+        const closeBtn = (
+            <button className="close" onClick={this.toggle}>
+                &times;
+            </button>
+        );
 
-										<button
-											type="button"
-											onClick={() => {
-												this.toggle()
-											}}
-										>
-											Edit
-									</button>
-									</div>
-									: null
-							}
-						</div>
->>>>>>> master
+        return (
+            <>
+                <div className="card">
+                    <div className="card-content">
+                        <h4>
+                            {this.props.name}: {this.props.message}
+                            <span className="card-messageTitle"></span>
+                        </h4>
+                        <div>
+                            {
+                                parseInt(this.props.userId) === (this.activeUserId) ?
+                                    <div>
+                                        <button
+                                            type="button" className="delete-message"
+                                            onClick={() =>
+                                                this.handleDelete(this.props.messageId)}
+                                        >
+                                            Delete
+                                        </button>
 
-						<Modal
-							isOpen={this.state.modal}
-							toggle={this.toggle}
-							className={this.props.className}
-						>
-							<ModalHeader
-								toggle={this.toggle}
-								close={closeBtn}>
-								Edit Message
-							</ModalHeader>
-							<ModalBody>
-								<EditMessageCard {...this.props}
-									messageId={this.props.messageId}
-									name={this.props.name}
-									getData={this.props.getData}
-									toggle={this.toggle} />
-							</ModalBody>
+                                        <button
+                                            type="button" className="edit-message"
+                                            onClick={() => {
+                                                this.toggle()
+                                            }}
+                                        >
+                                            Edit
+                                    </button>
+                                    </div>
+                                    : null
+                            }
+                        </div>
+
+                        <Modal
+                            isOpen={this.state.modal}
+                            toggle={this.toggle}
+                            className={this.props.className}
+                        >
+                            <ModalHeader
+                                toggle={this.toggle}
+                                close={closeBtn}>
+                                Edit Message
+                            </ModalHeader>
+                            <ModalBody>
+                                <EditMessageCard {...this.props}
+                                    messageId={this.props.messageId}
+                                    name={this.props.name}
+                                    getData={this.props.getData}
+                                    toggle={this.toggle} />
+                            </ModalBody>
 
 
-						</Modal>
-						<hr></hr>
-					</div>
-				</div>
-			</>
-		);
-	}
+                        </Modal>
+
+                    </div>
+                </div>
+            </>
+        );
+    }
 }
 
 export default MessageCard;

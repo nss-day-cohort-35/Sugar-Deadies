@@ -16,6 +16,10 @@ color: white;
     background-color: #669966;
 }
 
+.news-card {
+    border-style: none;
+  }
+
 label {
     font-family: 'Raleway', sans-serif;
     text-transform: none;
@@ -34,7 +38,6 @@ label {
 width: 130px;
 padding-top: 10px;
 padding-bottom: 20px;
-<<<<<<< HEAD
 }
 
 .news-container-cards {
@@ -49,13 +52,11 @@ overflow-y: scroll;
     margin-right:  10px;
    }
 
-   .edit-new {
+   .edit-news {
     color:white;
     background-color: #F89938;
     font-family: 'Raleway', sans-serif !important;
    }
-=======
-    }
 
 .close, .add, .cancel {
     display: flex;
@@ -64,4 +65,3 @@ overflow-y: scroll;
     font-size: 20px !important;
     background-color: #F89938 !important;
 }
->>>>>>> master

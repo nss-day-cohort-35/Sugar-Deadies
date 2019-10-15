@@ -182,7 +182,7 @@ box-shadow: 0 4px 8px 0 rgba(0.4,0.4,0.4,0.4);
 }
 
 .welcomelogo {
-    height: 190px;
+    /* height: 190px; */
     /* width: 200px; */
     padding-top: 10px;
     padding-bottom: 20px;

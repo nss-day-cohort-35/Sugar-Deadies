@@ -1,6 +1,6 @@
 .addTask {
     color: white;
-    background-color: #F89938;
+    background-color: #F89938 !important;
     font-family: 'Raleway', sans-serif;
     text-transform: uppercase;
     font-weight: bolder;
@@ -16,7 +16,7 @@
       background-color: #F89938;
     }
 
-    .card {
+    .task-card {
       border-style: none;
     }
 
