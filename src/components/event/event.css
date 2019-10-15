@@ -1,7 +1,7 @@
 .events-intro{
     display: flex;
     justify-content: space-between;
-      }
+}
 
 .events-img{
  height: 130px;
@@ -27,7 +27,7 @@ padding-bottom: 20px;
     margin-right: 22px;
     margin-bottom: 20px;
     }
-  
+
     .delete-event {
       color:white;
       background-color: #EE3C96;
@@ -44,6 +44,7 @@ padding-bottom: 20px;
 
      .event-container-cards {
       overflow-y: scroll;
+      max-height: 50%;
       }
 
 .close, .add, .cancel {

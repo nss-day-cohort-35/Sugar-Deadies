@@ -44,6 +44,7 @@
 
      .message-container-cards {
       overflow-y: scroll;
+      max-height: 80%;
      }
     .close, .add, .cancel {
     display: flex;
