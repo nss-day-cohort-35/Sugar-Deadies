@@ -10,9 +10,13 @@ padding-top: 10px;
 padding-bottom: 20px;
 }
 
+.events-card {
+  border-style: none;
+}
+
 .addEvent {
     color: white;
-    background-color: #F89938;
+    background-color: #F89938 !important;
     font-family: 'Raleway', sans-serif;
     text-transform: uppercase;
     font-weight: bolder;
@@ -23,6 +27,24 @@ padding-bottom: 20px;
     margin-right: 22px;
     margin-bottom: 20px;
     }
+  
+    .delete-event {
+      color:white;
+      background-color: #EE3C96;
+      font-family: 'Raleway', sans-serif !important;
+      margin-left: 15px;
+      margin-right:  10px;
+     }
+
+     .edit-event {
+      color:white;
+      background-color: #F89938;
+      font-family: 'Raleway', sans-serif !important;
+     }
+
+     .event-container-cards {
+      overflow-y: scroll;
+      }
 
 .close, .add, .cancel {
     display: flex;

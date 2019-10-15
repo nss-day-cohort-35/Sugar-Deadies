@@ -64,7 +64,7 @@ class MessageList extends Component {
       getData={this.getData}
      />
 
-        <div className="container-cards">
+        <div className="message-container-cards">
           {this.state.messages.map(message => (
             <MessageCard
               key={message.id}

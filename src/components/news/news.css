@@ -16,6 +16,10 @@ color: white;
     background-color: #669966;
 }
 
+.news-card {
+    border-style: none;
+  }
+
 label {
     font-family: 'Raleway', sans-serif;
     text-transform: none;
@@ -34,7 +38,25 @@ label {
 width: 130px;
 padding-top: 10px;
 padding-bottom: 20px;
-    }
+}
+
+.news-container-cards {
+overflow-y: scroll;
+}
+
+.delete-news {
+    color:white;
+    background-color: #EE3C96;
+    font-family: 'Raleway', sans-serif !important;
+    margin-left: 15px;
+    margin-right:  10px;
+   }
+
+   .edit-news {
+    color:white;
+    background-color: #F89938;
+    font-family: 'Raleway', sans-serif !important;
+   }
 
 .close, .add, .cancel {
     display: flex;

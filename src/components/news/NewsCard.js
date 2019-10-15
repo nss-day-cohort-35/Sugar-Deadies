@@ -36,7 +36,7 @@ class NewsCard extends Component {
 		);
 		return (
 			<>
-				<div className="card">
+				<div className="news-card">
 					<div className="card-content">
 						<h3>
 							Article Title: {this.props.news.articleTitle}
@@ -48,8 +48,7 @@ class NewsCard extends Component {
 						<p>Date: {this.props.news.createDate} </p>
 
 						<button
-							type="button"
-							className="delete"
+							type="button" className="delete-news"
 							onClick={() =>
 								this.handleDelete(this.props.news.id)
 							}
@@ -58,8 +57,7 @@ class NewsCard extends Component {
 						</button>
 
 						<button
-							type="button"
-							className="edit"
+							type="button" className="edit-news"
 							onClick={() => {
 								this.toggle();
 							}}
@@ -85,6 +83,10 @@ class NewsCard extends Component {
 							</ModalBody>
 						</Modal>
 					</div>
+					<div className="scroll-img-main">
+	<img className="scroll-img" src={require('../../images/scrollimage.png')} alt="logo" />
+	</div>
+	<hr></hr>
 				</div>
 			</>
 		);

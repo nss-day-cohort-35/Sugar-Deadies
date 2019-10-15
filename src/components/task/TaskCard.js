@@ -36,7 +36,7 @@ class TaskCard extends Component {
 		);
 		return (
 			<>
-				<div className="card">
+				<div className="task-card">
 					<div className="task-card-content">
 						<h3>
 							{this.props.task.taskTitle}
@@ -45,11 +45,10 @@ class TaskCard extends Component {
 
 						<p><em>Additional Details:</em><br></br>{this.props.task.taskEntry}</p>
 
-						<p>Date: {this.props.task.dateOfCompletion}</p>
+						<p>Due Date: {this.props.task.dateOfCompletion}</p>
 
 						<button
-							className="delete"
-							type="button"
+							type="button" className="delete-task"
 							onClick={() =>
 								this.handleDelete(this.props.task.id)
 							}
@@ -58,26 +57,14 @@ class TaskCard extends Component {
 						</button>
 
 						<button
-						className="edit"
-							type="button"
+							type="button" className="edit-task"
 							onClick={() => {
 								this.toggle()
 							}}
 						>
 							Edit
-						</button>
+						</button><br></br>
 
-						Task Complete?
-						<div className="container">
-  						<div className="round">
-						<input type="checkbox" id="checkbox"
-							onClick={() =>
-								this.handleDelete(this.props.task.id)
-							}
-							 />
-							<label htmlFor="checkbox"></label>
-							</div>
-							</div>
 
 						<Modal
 							isOpen={this.state.modal}
@@ -95,7 +82,19 @@ class TaskCard extends Component {
 
 
 						</Modal>
-
+						<div className="task-complete"> 
+						<div className="taskTitle">Task Complete?</div>
+						<div className="container">
+						<i class="far fa-check-circle fa-2x"
+							onClick={() =>
+								this.handleDelete(this.props.task.id)
+							}></i>
+					</div>
+							</div>
+<div className="scroll-img-main">
+	<img className="scroll-img" src={require('../../images/scrollimage.png')} alt="logo" />
+	</div>
+	<hr></hr>
 					</div>
 				</div>
 			</>

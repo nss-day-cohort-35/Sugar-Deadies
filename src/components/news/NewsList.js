@@ -60,8 +60,7 @@ class NewsList extends Component {
       </div>
       <AddNewsForm {...this.props} 
       getData  = {this.getData}/>
-
-        <div className="container-cards">
+        <div className="news-container-cards">
           {this.state.allNews.map(singleNews => (
             <NewsCard
               key={singleNews.id}
