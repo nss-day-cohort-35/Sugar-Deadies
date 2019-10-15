@@ -63,7 +63,7 @@ class AddMessageForm extends Component {
 
             <>
                 {" "}
-                <Button className="addMessage" color="success" onClick={this.toggle}>
+                <Button className="addMessage"  onClick={this.toggle}>
                     Add New Message</Button>
                 <Modal
                     isOpen={this.state.modal}

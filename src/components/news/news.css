@@ -16,6 +16,10 @@ color: white;
     background-color: #669966;
 }
 
+.news-card {
+    border-style: none;
+  }
+
 label {
     font-family: 'Raleway', sans-serif;
     text-transform: none;
@@ -48,12 +52,11 @@ overflow-y: scroll;
     margin-right:  10px;
    }
 
-   .edit-new {
+   .edit-news {
     color:white;
     background-color: #F89938;
     font-family: 'Raleway', sans-serif !important;
    }
-
 
 .close, .add, .cancel {
     display: flex;

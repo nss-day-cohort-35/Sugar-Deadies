@@ -36,7 +36,7 @@ class NewsCard extends Component {
 		);
 		return (
 			<>
-				<div className="card">
+				<div className="news-card">
 					<div className="card-content">
 						<h3>
 							Article Title: {this.props.news.articleTitle}
@@ -48,12 +48,7 @@ class NewsCard extends Component {
 						<p>Date: {this.props.news.createDate} </p>
 
 						<button
-<<<<<<< HEAD
 							type="button" className="delete-news"
-=======
-							type="button"
-							className="delete"
->>>>>>> master
 							onClick={() =>
 								this.handleDelete(this.props.news.id)
 							}
@@ -62,12 +57,7 @@ class NewsCard extends Component {
 						</button>
 
 						<button
-<<<<<<< HEAD
 							type="button" className="edit-news"
-=======
-							type="button"
-							className="edit"
->>>>>>> master
 							onClick={() => {
 								this.toggle();
 							}}

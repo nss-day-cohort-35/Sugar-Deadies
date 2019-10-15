@@ -36,7 +36,7 @@ class EventCard extends Component {
 		);
 		return (
 			<>
-				<div className="card">
+				<div className="event-card">
 					<div className="card-content">
 						<h3>
 							Event Name:{this.props.event.eventName}

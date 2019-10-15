@@ -10,9 +10,13 @@ padding-top: 10px;
 padding-bottom: 20px;
 }
 
+.events-card {
+  border-style: none;
+}
+
 .addEvent {
     color: white;
-    background-color: #F89938;
+    background-color: #F89938 !important;
     font-family: 'Raleway', sans-serif;
     text-transform: uppercase;
     font-weight: bolder;

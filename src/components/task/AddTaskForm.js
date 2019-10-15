@@ -66,7 +66,7 @@ class AddTaskForm extends Component {
 		return (
 			<>
 				{" "}
-				<Button className="addTask" color="success" onClick={this.toggle}>
+				<Button className="addTask"  onClick={this.toggle}>
                 Add New Task</Button>
 				<Modal
 					isOpen={this.state.modal}

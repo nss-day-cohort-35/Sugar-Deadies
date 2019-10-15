@@ -10,9 +10,13 @@
       padding-bottom: 20px;
     }
 
+    .message-card {
+      border-style: none;
+    }
+
     .addMessage   {
       color: white;
-    background-color: #F89938;
+      background-color: #F89938 !important;
     font-family: 'Raleway', sans-serif;
     text-transform: uppercase;
     font-weight: bolder;
